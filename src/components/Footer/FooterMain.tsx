@@ -1,5 +1,4 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
 import { Labels } from "../../types";
 import { defaultFontFamily } from "../../constants";
 
@@ -7,9 +6,9 @@ interface FooterMainProps {
   labels: Labels;
 }
 
-const FooterMain = ({ labels }: FooterMainProps) => {
+export const FooterMain = ({ labels }: FooterMainProps) => {
   return (
-    <Grid item md={9}>
+    <div>
       <span
         style={{
           color: "#000",
@@ -34,8 +33,6 @@ const FooterMain = ({ labels }: FooterMainProps) => {
       >
         {labels.main.description}
       </span>
-    </Grid>
+    </div>
   );
 };
-
-export default FooterMain;

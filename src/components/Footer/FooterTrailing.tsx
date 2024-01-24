@@ -1,28 +1,18 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import { Labels } from "../../types";
 
 interface FooterTrailingProps {
   labels: Labels;
 }
 
-const FooterTrailing = ({ labels }: FooterTrailingProps) => {
+export const FooterTrailing = ({ labels }: FooterTrailingProps) => {
   return (
-    <Grid item md={3}>
-      <Grid justifyContent="flex-end" container spacing={24}>
-        <Grid item>
-          <Button variant="contained" size={"large"} sx={{ mb: 1 }} style={{ width: "250px" }}>
-            {labels.main.buttonAllow}
-          </Button>
+    <div>
+      <div>
+        {labels.main.buttonAllow}
           <br />
-          <Button variant="outlined" size={"large"} style={{ width: "250px" }}>
-            {labels.main.buttonDefault}
-          </Button>
-        </Grid>
-      </Grid>
-    </Grid>
+        {labels.main.buttonDefault}
+        </div>
+      </div>
   );
 };
-
-export default FooterTrailing;

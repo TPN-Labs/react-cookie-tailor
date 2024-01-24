@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
 import React, { Component, CSSProperties } from "react";
-import Container from "@mui/material/Container";
-import FooterTailor from "./components/Footer/FooterTailor";
+import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultCookieTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
@@ -221,9 +220,9 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       >
         <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
-            <Container maxWidth="xl">
+            <div>
               <FooterTailor labels={labels || defaultCookieTailorProps.labels} />
-            </Container>
+            </div>
           </div>
         </div>
       </ConditionalWrapper>
