@@ -10,9 +10,9 @@ export const FooterTrailing = ({ labels }: FooterTrailingProps) => {
     <div>
       <div>
         {labels.main.buttonAllow}
-          <br />
+        <br />
         {labels.main.buttonDefault}
-        </div>
       </div>
+    </div>
   );
 };
