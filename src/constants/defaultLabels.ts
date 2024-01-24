@@ -16,7 +16,8 @@ export const defaultLabels: Labels = {
   main: {
     buttonAllow: "Allow all",
     buttonDefault: "Allow default",
-    description: "For purposes such as displaying personalized content, we use " +
+    description:
+      "For purposes such as displaying personalized content, we use " +
       "cookies or similar technologies. By clicking Accept, you agree to allow " +
       "the collection of information through cookies or similar technologies. " +
       "Find out more about cookies, including the ability to withdraw your " +
@@ -28,5 +29,5 @@ export const defaultLabels: Labels = {
     switchPreferences: "Preferences",
     switchStatistics: "Statistics",
     title: "This website uses cookies",
-  }
-}
+  },
+};

@@ -1,12 +1,12 @@
 import Cookies from "js-cookie";
 import React, { Component, CSSProperties } from "react";
+import Container from "@mui/material/Container";
+import FooterTailor from "./components/Footer/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultCookieTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
 import { POSITION_OPTIONS, SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
 import { getCookieTailorValue, getLegacyCookieName } from "./utilities";
-import FooterTailor from "./components/Footer/FooterTailor";
-import Container from '@mui/material/Container';
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultCookieTailorProps;
@@ -37,7 +37,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   accept(acceptedByScrolling = false) {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
       ...defaultCookieTailorProps,
-      ...this.props
+      ...this.props,
     };
 
     this.setCookie(cookieName, cookieValue);
@@ -56,7 +56,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   overlayClick() {
     const { acceptOnOverlayClick, onOverlayClick } = {
       ...defaultCookieTailorProps,
-      ...this.props
+      ...this.props,
     };
     if (acceptOnOverlayClick) {
       this.accept();
@@ -70,7 +70,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   decline() {
     const { cookieName, declineCookieValue, hideOnDecline, onDecline, setDeclineCookie } = {
       ...defaultCookieTailorProps,
-      ...this.props
+      ...this.props,
     };
 
     if (setDeclineCookie) {
@@ -174,7 +174,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       overlay,
       overlayClasses,
       overlayStyle,
-      style
+      style,
     } = this.props;
 
     let myStyle: CSSProperties = {};
@@ -222,9 +222,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
         <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
             <Container maxWidth="xl">
-              <FooterTailor
-                labels={labels || defaultCookieTailorProps.labels}
-              />
+              <FooterTailor labels={labels || defaultCookieTailorProps.labels} />
             </Container>
           </div>
         </div>

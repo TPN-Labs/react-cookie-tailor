@@ -1,4 +1,3 @@
-
 export interface Labels {
   about: GeneralLabels;
   consent: GeneralLabels;

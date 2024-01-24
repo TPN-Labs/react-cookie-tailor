@@ -1,9 +1,10 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import {
-  defaultCookieTailorName, Labels,
+  defaultCookieTailorName,
+  Labels,
   POSITION_OPTIONS,
   SAME_SITE_OPTIONS,
-  VISIBILITY_OPTIONS
+  VISIBILITY_OPTIONS,
 } from "./types";
 import { defaultLabels } from "./constants";
 
@@ -60,9 +61,9 @@ export interface CookieTailorProps {
 }
 
 const DefaultButtonComponent: FunctionComponent<{ children: ReactNode; [x: string]: any }> = ({
-                                                                                                children,
-                                                                                                ...props
-                                                                                              }) => {
+  children,
+  ...props
+}) => {
   return <button {...props}>{children}</button>;
 };
 
@@ -93,17 +94,14 @@ export const defaultCookieTailorProps = {
   hideOnDecline: true,
   labels: defaultLabels,
   location: POSITION_OPTIONS.BOTTOM,
-  onAccept: (_acceptedByScrolling: boolean) => {
-  },
-  onDecline: () => {
-  },
-  onOverlayClick: () => {
-  },
+  onAccept: (_acceptedByScrolling: boolean) => {},
+  onDecline: () => {},
+  onOverlayClick: () => {},
   overlay: false,
   overlayClasses: "",
   overlayStyle: {},
   sameSite: SAME_SITE_OPTIONS.LAX,
   setDeclineCookie: true,
   style: {},
-  visible: VISIBILITY_OPTIONS.BY_COOKIE_VALUE
+  visible: VISIBILITY_OPTIONS.BY_COOKIE_VALUE,
 };

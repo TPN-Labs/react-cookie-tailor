@@ -1,8 +1,8 @@
 import React from "react";
-import { Labels } from "../../types";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
+import { Labels } from "../../types";
 import FooterTrailing from "./FooterTrailing";
 import FooterMain from "./FooterMain";
 import FooterBar from "./FooterBar";
@@ -12,7 +12,7 @@ interface FooterTailorProps {
 }
 
 const FooterTailor = ({ labels }: FooterTailorProps) => {
-  return <>
+  return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <FooterMain labels={labels} />
@@ -21,7 +21,7 @@ const FooterTailor = ({ labels }: FooterTailorProps) => {
       <Divider sx={{ my: 1 }} />
       <FooterBar labels={labels} />
     </Box>
-  </>;
+  );
 };
 
 export default FooterTailor;
