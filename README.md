@@ -28,8 +28,8 @@ yarn add react-cookie-tailor
 
 ## About
 
-Our teem was looking for a cookie consent solution that was easy to use and looked good. We initially found
-another library but it was not suitable for our needs.
+Our team was looking for a cookie consent solution that was easy to use and looked good. We initially found
+another library, but it was not suitable for our needs.
 More precisely, we wanted to comply with the GDPR and CPRA regulations, which require that the user must be able to
 decline cookies.
 

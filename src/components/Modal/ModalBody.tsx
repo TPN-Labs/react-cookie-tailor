@@ -19,9 +19,9 @@ export const ModalBody = ({
 }: ModalBodyProps) => {
   const modalTabs: TailorTab[] = [
     {
-      id: "about",
-      title: labels.settings.headers.about.title,
-      component: <ModalAboutTab labels={labels} />,
+      id: "consent",
+      title: labels.settings.headers.consent.title,
+      component: <ModalConsentTab labels={labels} />,
     },
     {
       id: "details",
@@ -35,9 +35,9 @@ export const ModalBody = ({
       ),
     },
     {
-      id: "consent",
-      title: labels.settings.headers.consent.title,
-      component: <ModalConsentTab labels={labels} />,
+      id: "about",
+      title: labels.settings.headers.about.title,
+      component: <ModalAboutTab labels={labels} primaryColor={primaryColor} />,
     },
   ];
 
