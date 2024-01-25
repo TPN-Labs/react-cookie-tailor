@@ -1,4 +1,5 @@
 export * from "./defaultCookieName";
-export * from "./defaultLabels";
+export * from "./defaultCookies";
 export * from "./defaultFonts";
+export * from "./defaultLabels";
 export * from "./mandatoryCookies";

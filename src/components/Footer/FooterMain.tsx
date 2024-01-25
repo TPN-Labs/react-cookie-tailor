@@ -3,9 +3,10 @@ import { Labels } from "../../types";
 
 interface FooterMainProps {
   labels: Labels;
+  primaryColor: string;
 }
 
-export const FooterMain = ({ labels }: FooterMainProps) => {
+export const FooterMain = ({ labels, primaryColor }: FooterMainProps) => {
   return (
     <>
       <div className={"rct-grid rct-grid-cols-1 rct-mb-2"}>
@@ -28,7 +29,13 @@ export const FooterMain = ({ labels }: FooterMainProps) => {
           >
             {labels.main.descriptionStart}
             &nbsp;
-            <a href={labels.main.descriptionPrivacyLink} className={"rct-font-bold"}>
+            <a
+              href={labels.main.descriptionPrivacyLink}
+              className={"rct-font-bold"}
+              style={{ color: primaryColor }}
+              target={"_blank"}
+              rel="noreferrer"
+            >
               {labels.main.descriptionPrivacyTitle}
             </a>
             &nbsp;

@@ -5,6 +5,23 @@
 > The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [[0.8.0](https://github.com/TPN-Labs/react-cookie-tailor/releases/tag/0.8.0)]
+
+This is the "official" release of the library.
+
+### Added
+
+- Settings screen for controlling the cookies
+- NPM badges in the README.md
+
+### Updated
+
+- to be continued...
+
+### Removed
+
+- to be continued...
+
 ## [[0.7.0](https://github.com/TPN-Labs/react-cookie-tailor/releases/tag/0.7.0)]
 
 Our team was looking for a cookie consent solution that was easy to use and looked good. We will write here what was

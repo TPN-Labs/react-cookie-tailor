@@ -1,36 +1,39 @@
 import React from "react";
 import { Labels } from "../../types";
 import "../../css/out/rct_style.css";
+import { OutlineButton, PrimaryButton } from "../Buttons";
 
 interface FooterTrailingProps {
   labels: Labels;
+  primaryColor: string;
+  funcAccept: () => void;
+  funcDecline: () => void;
 }
 
-export const FooterTrailing = ({ labels }: FooterTrailingProps) => {
+export const FooterTrailing = ({
+  labels,
+  funcAccept,
+  funcDecline,
+  primaryColor,
+}: FooterTrailingProps) => {
   const buttonWidth = "240px";
 
   return (
     <div>
       <div>
-        <button
-          className={
-            "rct-bg-blue-700 hover:rct-bg-blue-500 rct-float-right rct-py-4 rct-my-2 " +
-            "rct-font-sans rct-font-bold rct-text-white rct-tracking-wide rct-uppercase"
-          }
-          style={{ width: buttonWidth }}
-        >
-          {labels.main.buttonAllow}
-        </button>
+        <PrimaryButton
+          primaryColor={primaryColor}
+          text={labels.main.buttonAllow}
+          width={buttonWidth}
+          clickFunction={funcAccept}
+        />
         <br />
-        <button
-          className={
-            "rct-border-2 rct-border-blue-950 hover:rct-bg-blue-700 rct-float-right rct-py-4 rct-my-2 " +
-            "hover:rct-text-white rct-font-sans rct-font-bold rct-text-blue-950 rct-tracking-wide rct-uppercase"
-          }
-          style={{ width: buttonWidth }}
-        >
-          {labels.main.buttonDefault}
-        </button>
+        <OutlineButton
+          primaryColor={primaryColor}
+          text={labels.main.buttonDefault}
+          width={buttonWidth}
+          clickFunction={funcDecline}
+        />
       </div>
     </div>
   );
