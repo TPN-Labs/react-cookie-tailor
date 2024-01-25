@@ -1,13 +1,31 @@
-import { CookieCategory, CookieCategoryDefinition } from "../types";
+import { CookieCategory, Labels } from "../types";
 
-export const mandatoryCookies: CookieCategoryDefinition = {
-  id: 1,
-  type: CookieCategory.MANDATORY,
-  title: "Mandatory",
-  description:
-    "Necessary cookies help you use a website by enabling basic " +
-    "functions such as page navigation and access to secure areas of the " +
-    "website. The website cannot function properly without these cookies.",
-  status: true,
-  enabled: true,
+export const getCategoryTitleAndDescription = (labels: Labels, category: CookieCategory) => {
+  switch (category) {
+    case CookieCategory.MANDATORY:
+      return {
+        title: labels.cookieCategory.mandatory.title,
+        description: labels.cookieCategory.mandatory.description,
+      };
+    case CookieCategory.PREFRENCES:
+      return {
+        title: labels.cookieCategory.preferences.title,
+        description: labels.cookieCategory.preferences.description,
+      };
+    case CookieCategory.STATISTICS:
+      return {
+        title: labels.cookieCategory.statistics.title,
+        description: labels.cookieCategory.statistics.description,
+      };
+    case CookieCategory.MARKETING:
+      return {
+        title: labels.cookieCategory.marketing.title,
+        description: labels.cookieCategory.marketing.description,
+      };
+    default:
+      return {
+        title: labels.cookieCategory.unclassified.title,
+        description: labels.cookieCategory.unclassified.description,
+      };
+  }
 };

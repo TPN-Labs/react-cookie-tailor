@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/react-cookie-tailor.png)](https://npmjs.org/package/react-cookie-tailor)
 
-> ℹ️ This is a fork of [react-cookie-tailor](https://github.com/Mastermindzh/react-cookie-tailor)
+> ℹ️ This is a fork of [react-cookie-consent](https://github.com/Mastermindzh/react-cookie-consent)
 
 ## Default look
 
@@ -29,7 +29,7 @@ yarn add react-cookie-tailor
 ## About
 
 Our teem was looking for a cookie consent solution that was easy to use and looked good. We initially found
-[react-cookie-tailor,](https://github.com/Mastermindzh/react-cookie-tailor) but it was not suitable for our needs.
+another library but it was not suitable for our needs.
 More precisely, we wanted to comply with the GDPR and CPRA regulations, which require that the user must be able to
 decline cookies.
 
@@ -57,7 +57,7 @@ Then you can use the component anywhere in your React app like so:
 ### Translations
 
 You can provide translations for the text using the `labels` property. By default, the library will use the English
-translations. The default values can be found in `src/constants/defaultLabels.ts`.
+translations. The default values can be found in [constants/defaultLabels.ts](https://github.com/TPN-Labs/react-cookie-tailor/blob/main/src/constants/defaultLabels.ts)
 
 You can provide your own translations like so:
 
@@ -74,6 +74,15 @@ const labels = {
 };
 
 <CookieTailor labels={labels}/>
+```
+
+### Just one color
+
+At this moment, we use only one color for highlighting various elements such as buttons, links, etc.
+You can change the color by using the `primaryColor` property. By default, the color is `#2B567D` (blue).
+
+```js
+<CookieTailor primaryColor="#2B567D"/>
 ```
 
 ### Cookie categories

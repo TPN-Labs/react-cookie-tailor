@@ -32,5 +32,14 @@
     @apply disabled:after:rct-bg-opacity-75 disabled:rct-cursor-not-allowed;
     @apply disabled:checked:before:rct-bg-opacity-40;
   }
+
+  .rct-modal {
+    transition: opacity 0.25s ease;
+  }
+
+  body.rct-modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+  }
 }
 

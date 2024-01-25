@@ -2,14 +2,14 @@ import Cookies from "js-cookie";
 import React, { Component, CSSProperties } from "react";
 import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
-import { CookieTailorProps, defaultCookieTailorProps } from "./CookieTailor.props";
+import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
 import { POSITION_OPTIONS, SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
 import { getCookieTailorValue, getLegacyCookieName } from "./utilities";
 import "./css/out/rct_style.css";
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
-  public static defaultProps = defaultCookieTailorProps;
+  public static defaultProps = defaultTailorProps;
 
   state: CookieTailorState = defaultState;
 
@@ -34,9 +34,9 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   /**
    * Set a persistent accept cookie
    */
-  accept(acceptedByScrolling = false) {
+  accept = (acceptedByScrolling = false) => {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
-      ...defaultCookieTailorProps,
+      ...defaultTailorProps,
       ...this.props,
     };
 
@@ -48,14 +48,14 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       this.setState({ visible: false });
       this.removeScrollListener();
     }
-  }
+  };
 
   /**
    * Handle a click on the overlay
    */
   overlayClick() {
     const { acceptOnOverlayClick, onOverlayClick } = {
-      ...defaultCookieTailorProps,
+      ...defaultTailorProps,
       ...this.props,
     };
     if (acceptOnOverlayClick) {
@@ -67,9 +67,9 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   /**
    * Set a persistent decline cookie
    */
-  decline() {
+  decline = () => {
     const { cookieName, declineCookieValue, hideOnDecline, onDecline, setDeclineCookie } = {
-      ...defaultCookieTailorProps,
+      ...defaultTailorProps,
       ...this.props,
     };
 
@@ -82,7 +82,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     if (hideOnDecline) {
       this.setState({ visible: false });
     }
-  }
+  };
 
   /**
    * Function to set the consent cookie based on the provided variables
@@ -123,7 +123,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
    * checks whether scroll has exceeded set amount and fire accept if so.
    */
   handleScroll = () => {
-    const { acceptOnScrollPercentage } = { ...defaultCookieTailorProps, ...this.props };
+    const { acceptOnScrollPercentage } = { ...defaultTailorProps, ...this.props };
 
     // (top / height) - height * 100
     const rootNode = document.documentElement;
@@ -172,6 +172,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       labels,
       cookiesCategories,
       location,
+      primaryColor,
       overlay,
       overlayClasses,
       overlayStyle,
@@ -224,8 +225,11 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
             <div className={"rct-container rct-place-self-center"}>
               <FooterTailor
-                labels={labels || defaultCookieTailorProps.labels}
-                categories={cookiesCategories || defaultCookieTailorProps.cookiesCategories}
+                labels={labels || defaultTailorProps.labels}
+                categories={cookiesCategories || defaultTailorProps.cookiesCategories}
+                primaryColor={primaryColor || defaultTailorProps.primaryColor}
+                funcAccept={this.accept}
+                funcDecline={this.decline}
               />
             </div>
           </div>

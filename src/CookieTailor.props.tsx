@@ -49,6 +49,7 @@ export interface CookieTailorProps {
   hideOnDecline?: boolean;
   labels?: Labels;
   location?: string;
+  primaryColor?: string;
   onAccept?: (acceptedByScrolling: boolean) => void;
   onDecline?: () => void;
   onOverlayClick?: () => void;
@@ -68,7 +69,7 @@ const DefaultButtonComponent: FunctionComponent<{ children: ReactNode; [x: strin
   return <button {...props}>{children}</button>;
 };
 
-export const defaultCookieTailorProps = {
+export const defaultTailorProps = {
   ButtonComponent: DefaultButtonComponent,
   acceptOnOverlayClick: false,
   acceptOnScroll: false,
@@ -100,6 +101,7 @@ export const defaultCookieTailorProps = {
   hideOnDecline: true,
   labels: defaultLabels,
   location: POSITION_OPTIONS.BOTTOM,
+  primaryColor: "#2B567D",
   onAccept: (_acceptedByScrolling: boolean) => {},
   onDecline: () => {},
   onOverlayClick: () => {},
