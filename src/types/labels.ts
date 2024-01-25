@@ -41,6 +41,7 @@ interface CookieLabels {
 interface MainLabels {
   buttonAllow: string;
   buttonDefault: string;
+  buttonClose: string;
   descriptionPrivacyLink: string;
   descriptionPrivacyTitle: string;
   descriptionStart: string;

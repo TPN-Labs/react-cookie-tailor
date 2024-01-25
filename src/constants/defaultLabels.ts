@@ -37,6 +37,7 @@ export const defaultLabels: Labels = {
   main: {
     buttonAllow: "Allow all",
     buttonDefault: "Allow default",
+    buttonClose: "Close",
     descriptionStart:
       "For purposes such as displaying personalized content, we use " +
       "cookies or similar technologies. By clicking Accept, you agree to allow " +

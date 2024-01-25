@@ -26,6 +26,8 @@ export const FooterTrailing = ({
           text={labels.main.buttonAllow}
           width={buttonWidth}
           clickFunction={funcAccept}
+          marginY
+          paddingY
         />
         <br />
         <OutlineButton
@@ -33,6 +35,8 @@ export const FooterTrailing = ({
           text={labels.main.buttonDefault}
           width={buttonWidth}
           clickFunction={funcDecline}
+          marginY
+          paddingY
         />
       </div>
     </div>

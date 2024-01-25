@@ -21,7 +21,7 @@ export const ModalBody = ({
     {
       id: "consent",
       title: labels.settings.headers.consent.title,
-      component: <ModalConsentTab labels={labels} />,
+      component: <ModalConsentTab labels={labels} primaryColor={primaryColor} />,
     },
     {
       id: "details",

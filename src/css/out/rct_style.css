@@ -391,6 +391,21 @@ body.rct-modal-active {
   margin-right: auto;
 }
 
+.rct-my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.rct-my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rct-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .rct-mb-0 {
   margin-bottom: 0px;
 }
@@ -569,6 +584,16 @@ body.rct-modal-active {
   padding-bottom: 0.5rem;
 }
 
+.rct-py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.rct-py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .rct-text-left {
   text-align: left;
 }
@@ -610,6 +635,22 @@ body.rct-modal-active {
 
 .rct-leading-7 {
   line-height: 1.75rem;
+}
+
+.rct-leading-5 {
+  line-height: 1.25rem;
+}
+
+.rct-leading-4 {
+  line-height: 1rem;
+}
+
+.rct-leading-8 {
+  line-height: 2rem;
+}
+
+.rct-leading-6 {
+  line-height: 1.5rem;
 }
 
 .rct-tracking-wide {
