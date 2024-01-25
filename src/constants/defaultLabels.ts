@@ -1,18 +1,6 @@
 import { Labels } from "../types";
 
 export const defaultLabels: Labels = {
-  about: {
-    title: "About",
-    description: "This is an example of a cookie consent banner with more information.",
-  },
-  consent: {
-    title: "Consent",
-    description: "This is an example of a cookie consent banner with more information.",
-  },
-  details: {
-    title: "Details",
-    description: "This is an example of a cookie consent banner with more information.",
-  },
   cookieCategory: {
     mandatory: {
       title: "Mandatory",
@@ -60,5 +48,23 @@ export const defaultLabels: Labels = {
     descriptionEnd: "section.",
     moreSettings: "More settings",
     title: "This website uses cookies",
+  },
+  settings: {
+    title: "Cookie settings",
+    description: "Manage your cookie preferences below.",
+    headers: {
+      about: {
+        title: "About",
+        description: "This is an example of a cookie consent banner with more information.",
+      },
+      consent: {
+        title: "Consent",
+        description: "This is an example of a cookie consent banner with more information.",
+      },
+      details: {
+        title: "Details",
+        description: "This is an example of a cookie consent banner with more information.",
+      },
+    },
   },
 };

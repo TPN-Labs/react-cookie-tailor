@@ -163,6 +163,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     }
 
     const {
+      cookies,
       containerClasses,
       contentClasses,
       contentStyle,
@@ -226,6 +227,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
             <div className={"rct-container rct-place-self-center"}>
               <FooterTailor
                 labels={labels || defaultTailorProps.labels}
+                cookies={cookies || defaultTailorProps.cookies}
                 categories={cookiesCategories || defaultTailorProps.cookiesCategories}
                 primaryColor={primaryColor || defaultTailorProps.primaryColor}
                 funcAccept={this.accept}

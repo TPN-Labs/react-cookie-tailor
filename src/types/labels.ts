@@ -1,9 +1,19 @@
 export interface Labels {
+  cookieCategory: CookieLabels;
+  main: MainLabels;
+  settings: SettingsLabels;
+}
+
+interface SettingsHeaders {
   about: GeneralLabels;
   consent: GeneralLabels;
-  cookieCategory: CookieLabels;
   details: GeneralLabels;
-  main: MainLabels;
+}
+
+interface SettingsLabels {
+  title: string;
+  description: string;
+  headers: SettingsHeaders;
 }
 
 interface CookieLabels {

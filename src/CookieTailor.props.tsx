@@ -4,9 +4,10 @@ import {
   Labels,
   POSITION_OPTIONS,
   SAME_SITE_OPTIONS,
+  TailorCookiesDetails,
   VISIBILITY_OPTIONS,
 } from "./types";
-import { defaultCookieTailorName, defaultLabels } from "./constants";
+import { defaultCookies, defaultCookieTailorName, defaultLabels } from "./constants";
 
 export interface CookieTailorProps {
   ButtonComponent?: any;
@@ -21,6 +22,7 @@ export interface CookieTailorProps {
   buttonText?: string | ReactNode | Function;
   buttonWrapperClasses?: string;
   children?: ReactNode;
+  cookies?: TailorCookiesDetails;
   containerClasses?: string;
   contentClasses?: string;
   contentStyle?: React.CSSProperties;
@@ -79,6 +81,7 @@ export const defaultTailorProps = {
   containerClasses: "CookieTailor",
   contentClasses: "",
   contentStyle: {},
+  cookies: defaultCookies,
   cookieName: defaultCookieTailorName,
   cookieValue: "true",
   cookiesCategories: [

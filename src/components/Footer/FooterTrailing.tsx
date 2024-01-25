@@ -21,9 +21,19 @@ export const FooterTrailing = ({
   return (
     <div>
       <div>
-        <PrimaryButton primaryColor={primaryColor} text={labels.main.buttonAllow} width={buttonWidth} clickFunction={funcAccept} />
+        <PrimaryButton
+          primaryColor={primaryColor}
+          text={labels.main.buttonAllow}
+          width={buttonWidth}
+          clickFunction={funcAccept}
+        />
         <br />
-        <OutlineButton primaryColor={primaryColor} text={labels.main.buttonDefault} width={buttonWidth} clickFunction={funcDecline} />
+        <OutlineButton
+          primaryColor={primaryColor}
+          text={labels.main.buttonDefault}
+          width={buttonWidth}
+          clickFunction={funcDecline}
+        />
       </div>
     </div>
   );

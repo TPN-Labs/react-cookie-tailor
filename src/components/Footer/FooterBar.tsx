@@ -1,46 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { CookieCategory, CookieCategoryDefinition, Labels } from "../../types";
-import { getCategoryTitleAndDescription } from "../../constants";
+import React from "react";
+import { CookieCategoryDefinition, Labels } from "../../types";
 
 interface FooterBarProps {
   labels: Labels;
-  categories: CookieCategory[];
+  categories: CookieCategoryDefinition[];
+  updateCategories: (categories: CookieCategoryDefinition[]) => void;
   primaryColor: string;
   toggleModal: () => void;
 }
 
-export const FooterBar = ({ labels, categories, primaryColor, toggleModal }: FooterBarProps) => {
-  const mandatoryCookies: CookieCategoryDefinition = {
-    id: 0,
-    title: getCategoryTitleAndDescription(labels, CookieCategory.MANDATORY).title,
-    description: getCategoryTitleAndDescription(labels, CookieCategory.MANDATORY).description,
-    enabled: false,
-    status: true,
-    type: CookieCategory.MANDATORY,
-  };
-
-  const [enabledCategories, setEnabledCategories] = useState<CookieCategoryDefinition[]>([
-    mandatoryCookies,
-  ]);
-
-  const providedCategories: CookieCategoryDefinition[] = categories.map((category, idx) => {
-    const categoryTitleAndDescription = getCategoryTitleAndDescription(labels, category);
-    return {
-      id: idx + 1,
-      title: categoryTitleAndDescription.title,
-      description: categoryTitleAndDescription.description,
-      enabled: true,
-      status: true,
-      type: category,
-    };
-  });
-
-  useEffect(() => {
-    setEnabledCategories([mandatoryCookies, ...providedCategories]);
-  }, []);
-
+export const FooterBar = ({
+  labels,
+  categories,
+  updateCategories,
+  primaryColor,
+  toggleModal,
+}: FooterBarProps) => {
   const switchCheckbox = (category: CookieCategoryDefinition) => {
-    const newCategories = enabledCategories.map((enabledCategory) => {
+    const newCategories = categories.map((enabledCategory) => {
       if (enabledCategory.type === category.type) {
         return {
           ...enabledCategory,
@@ -49,7 +26,7 @@ export const FooterBar = ({ labels, categories, primaryColor, toggleModal }: Foo
       }
       return enabledCategory;
     });
-    setEnabledCategories(newCategories);
+    updateCategories(newCategories);
   };
 
   return (
@@ -60,7 +37,7 @@ export const FooterBar = ({ labels, categories, primaryColor, toggleModal }: Foo
           "md:rct-grid-cols-4 lg:rct-grid-cols-5 grid-rows-3"
         }
       >
-        {enabledCategories.map((category, idx) => (
+        {categories.map((category, idx) => (
           <div className={"rct-border rct-m-3 rct-rounded"} key={`category_${idx}`}>
             <label
               htmlFor={`${category.type}_checkbox`}
