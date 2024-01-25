@@ -14,8 +14,8 @@ export const ModalDetailsTab = ({
 }: ModalDetailsTabProps) => {
   return (
     <div className={"rct-text-black"}>
-      {categories.map((category, idx) => (
-        <div key={`category_${idx}`}>
+      {categories.map((category) => (
+        <div key={`category_${category.id}`}>
           <h2>{category.title}</h2>
           <p>{category.description}</p>
         </div>

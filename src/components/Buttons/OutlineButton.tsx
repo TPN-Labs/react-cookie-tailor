@@ -30,7 +30,7 @@ export const OutlineButton = ({
         color: primaryColor,
         borderColor: primaryColor,
         backgroundColor: "whitesmoke",
-        marginRight: marginR ? marginR : "0",
+        marginRight: marginR,
         width,
       }}
       onClick={() => clickFunction()}
