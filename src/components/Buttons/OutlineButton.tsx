@@ -5,32 +5,31 @@ interface OutlineButtonProps {
   primaryColor: string;
   text: string;
   width?: string;
-  paddingY?: string;
-  marginY?: string;
-  marginR?: string;
+  paddingY?: boolean;
+  marginY?: boolean;
   clickFunction: () => void;
 }
 
 export const OutlineButton = ({
   primaryColor,
   text,
-  paddingY = "4",
-  marginY = "2",
-  marginR,
+  paddingY,
+  marginY,
   width = "200px",
   clickFunction,
 }: OutlineButtonProps) => {
   return (
     <button
       className={
-        `rct-float-right rct-py-${paddingY} rct-my-${marginY} rct-cursor-pointer ` +
-        "rct-font-sans rct-font-bold rct-text-white rct-tracking-wide rct-uppercase"
+        `rct-float-right ${paddingY ? "rct-py-4" : "rct-py-2"} ${
+          marginY ? "rct-my-2" : "rct-my-0"
+        } ` +
+        "rct-cursor-pointer rct-font-sans rct-font-bold rct-text-white rct-tracking-wide rct-uppercase"
       }
       style={{
         color: primaryColor,
         borderColor: primaryColor,
         backgroundColor: "whitesmoke",
-        marginRight: marginR,
         width,
       }}
       onClick={() => clickFunction()}

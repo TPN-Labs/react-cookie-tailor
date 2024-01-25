@@ -1,7 +1,7 @@
 import React from "react";
 import { CookieCategoryDefinition, Labels, TailorCookiesDetails } from "../../types";
 import "../../css/out/rct_style.css";
-import { OutlineButton, PrimaryButton } from "../Buttons";
+import { OutlineButton } from "../Buttons";
 import { ModalContainerClose } from "./ModalContainerClose";
 import { ModalHeader } from "./ModalHeader";
 import { ModalBody } from "./ModalBody";
@@ -61,14 +61,7 @@ export const Modal = ({
           <div className={"rct-flex rct-justify-end rct-py-2 rct-px-6"}>
             <OutlineButton
               primaryColor={primaryColor}
-              text={labels.main.buttonDefault}
-              clickFunction={toggleModal}
-              paddingY={"1"}
-              marginR={"20px"}
-            />
-            <PrimaryButton
-              primaryColor={primaryColor}
-              text={labels.main.buttonAllow}
+              text={labels.main.buttonClose}
               clickFunction={toggleModal}
             />
           </div>

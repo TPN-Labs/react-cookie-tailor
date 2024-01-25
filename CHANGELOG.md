@@ -11,6 +11,8 @@ This is the "official" release of the library.
 
 ### Added
 
+- A random ID for the consent tracking. This is useful for processing the cookie request
+in the backend. The ID is stored as a cookie with the name `rct_cookie_id`.
 - Settings screen for controlling the cookies
 - NPM badges in the README.md
 

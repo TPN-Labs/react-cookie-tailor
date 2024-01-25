@@ -4,8 +4,22 @@ export interface Labels {
   settings: SettingsLabels;
 }
 
+interface SettingsAbout {
+  title: string;
+  privacyPolicyLink: string;
+  privacyPolicyTitle: string;
+  cookiePolicyLink: string;
+  cookiePolicyTitle: string;
+  description1: string;
+  description2: string;
+  description3: string;
+  description4: string;
+  description5: string;
+  description6: string;
+}
+
 interface SettingsHeaders {
-  about: GeneralLabels;
+  about: SettingsAbout;
   consent: GeneralLabels;
   details: GeneralLabels;
 }
@@ -27,6 +41,7 @@ interface CookieLabels {
 interface MainLabels {
   buttonAllow: string;
   buttonDefault: string;
+  buttonClose: string;
   descriptionPrivacyLink: string;
   descriptionPrivacyTitle: string;
   descriptionStart: string;

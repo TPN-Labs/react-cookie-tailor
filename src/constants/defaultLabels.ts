@@ -37,6 +37,7 @@ export const defaultLabels: Labels = {
   main: {
     buttonAllow: "Allow all",
     buttonDefault: "Allow default",
+    buttonClose: "Close",
     descriptionStart:
       "For purposes such as displaying personalized content, we use " +
       "cookies or similar technologies. By clicking Accept, you agree to allow " +
@@ -55,7 +56,26 @@ export const defaultLabels: Labels = {
     headers: {
       about: {
         title: "About",
-        description: "This is an example of a cookie consent banner with more information.",
+        privacyPolicyLink: "/privacy-policy",
+        privacyPolicyTitle: "Privacy Policy",
+        cookiePolicyLink: "/cookie-policy",
+        cookiePolicyTitle: "Cookie Policy",
+        description1:
+          "Cookies are small text files that can be used by websites to make the user experience more efficient.",
+        description2:
+          "The law provides that we may store cookies on your device if they are strictly necessary " +
+          "for the operation of this website. For all other types of cookies we need your permission. " +
+          "This means that cookies that are classified as necessary are processed on the basis of " +
+          "GDPR Art. 6 (1) (f). All other cookies, i.e. those in the preferences and marketing " +
+          "categories, are processed on the basis of GDPR Art. 6 (1) (a) GDPR.",
+        description3:
+          "This site uses different types of cookies. Some cookies are placed by third " +
+          "party services that appear on our pages.",
+        description4: "You can at any time change or withdraw your consent from the",
+        description5:
+          "Find out more about who we are, how you can contact us and how we process personal data in our",
+        description6:
+          "Please indicate your consent ID and date when contacting us about your consent.",
       },
       consent: {
         title: "Consent",
