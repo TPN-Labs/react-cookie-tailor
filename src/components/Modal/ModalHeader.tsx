@@ -21,12 +21,7 @@ export const ModalHeader = ({ labels, toggleModal, primaryColor }: ModalHeaderPr
       >
         {labels.settings.title}
       </span>
-      <div
-        className="modal-close rct-cursor-pointer rct-z-50"
-        onClick={toggleModal}
-        role={"button"}
-        tabIndex="0"
-      >
+      <div className={"modal-close rct-cursor-pointer rct-z-50"} onClick={toggleModal}>
         <svg
           className="rct-fill-current rct-text-black rct-mr-2 rct-text-white"
           xmlns="http://www.w3.org/2000/svg"
