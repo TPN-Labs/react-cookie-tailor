@@ -1,14 +1,13 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels, TailorCookiesDetails } from "../../types";
+import { CookieCategoryDefinition, Labels, TailorColors, TailorCookiesDetails } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton } from "../Buttons";
-import { ModalContainerClose } from "./ModalContainerClose";
 import { ModalHeader } from "./ModalHeader";
 import { ModalBody } from "./ModalBody";
 
 interface ModalProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
   showModal: boolean;
   categories: CookieCategoryDefinition[];
   updateCategories: (categories: CookieCategoryDefinition[]) => void;
@@ -19,7 +18,7 @@ interface ModalProps {
 export const Modal = ({
   labels,
   showModal,
-  primaryColor,
+  colors,
   toggleModal,
   categories,
   updateCategories,
@@ -41,17 +40,18 @@ export const Modal = ({
 
       <div
         className={
-          "rct-modal-container rct-bg-white rct-w-11/12 md:rct-max-w-4xl rct-mx-auto rct-rounded " +
+          "rct-modal-container rct-w-11/12 md:rct-max-w-4xl rct-mx-auto rct-rounded " +
           "rct-shadow-lg rct-z-50 rct-overflow-y-auto"
         }
+        style={{
+          backgroundColor: colors.background,
+        }}
       >
-        <ModalContainerClose toggleModal={toggleModal} />
-
         <div className="modal-content rct-text-left">
-          <ModalHeader toggleModal={toggleModal} labels={labels} primaryColor={primaryColor} />
+          <ModalHeader toggleModal={toggleModal} labels={labels} colors={colors} />
 
           <ModalBody
-            primaryColor={primaryColor}
+            colors={colors}
             labels={labels}
             categories={categories}
             updateCategories={updateCategories}
@@ -60,7 +60,7 @@ export const Modal = ({
 
           <div className={"rct-flex rct-justify-end rct-py-2 rct-px-6"}>
             <OutlineButton
-              primaryColor={primaryColor}
+              colors={colors}
               text={labels.main.buttonClose}
               clickFunction={toggleModal}
             />

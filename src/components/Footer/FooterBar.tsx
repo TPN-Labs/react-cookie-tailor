@@ -1,11 +1,11 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels } from "../../types";
+import { CookieCategoryDefinition, Labels, TailorColors } from "../../types";
 
 interface FooterBarProps {
   labels: Labels;
   categories: CookieCategoryDefinition[];
   updateCategories: (categories: CookieCategoryDefinition[]) => void;
-  primaryColor: string;
+  colors: TailorColors;
   toggleModal: () => void;
 }
 
@@ -13,7 +13,7 @@ export const FooterBar = ({
   labels,
   categories,
   updateCategories,
-  primaryColor,
+  colors,
   toggleModal,
 }: FooterBarProps) => {
   const switchCheckbox = (category: CookieCategoryDefinition) => {
@@ -44,7 +44,7 @@ export const FooterBar = ({
           >
             <span
               className={"rct-mr-2 rct-font-bold rct-font-sans rct-tracking-wide"}
-              style={{ color: primaryColor }}
+              style={{ color: colors.black }}
             >
               {category.title}
             </span>
@@ -66,7 +66,7 @@ export const FooterBar = ({
       >
         <span
           className={"rct-font-bold rct-font-sans rct-tracking-wide"}
-          style={{ color: primaryColor }}
+          style={{ color: colors.black }}
         >
           {labels.main.moreSettings}
         </span>

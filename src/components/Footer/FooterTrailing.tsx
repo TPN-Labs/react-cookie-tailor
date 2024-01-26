@@ -1,11 +1,11 @@
 import React from "react";
-import { Labels } from "../../types";
+import { Labels, TailorColors } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton, PrimaryButton } from "../Buttons";
 
 interface FooterTrailingProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
   funcAccept: () => void;
   funcDecline: () => void;
 }
@@ -14,7 +14,7 @@ export const FooterTrailing = ({
   labels,
   funcAccept,
   funcDecline,
-  primaryColor,
+  colors,
 }: FooterTrailingProps) => {
   const buttonWidth = "240px";
 
@@ -22,7 +22,7 @@ export const FooterTrailing = ({
     <div>
       <div>
         <PrimaryButton
-          primaryColor={primaryColor}
+          colors={colors}
           text={labels.main.buttonAllow}
           width={buttonWidth}
           clickFunction={funcAccept}
@@ -31,7 +31,7 @@ export const FooterTrailing = ({
         />
         <br />
         <OutlineButton
-          primaryColor={primaryColor}
+          colors={colors}
           text={labels.main.buttonDefault}
           width={buttonWidth}
           clickFunction={funcDecline}

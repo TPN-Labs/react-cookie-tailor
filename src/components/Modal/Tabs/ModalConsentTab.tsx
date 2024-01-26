@@ -1,12 +1,12 @@
 import React from "react";
-import { Labels } from "../../../types";
+import { Labels, TailorColors } from "../../../types";
 
 interface ModalConsentTabProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
 }
 
-export const ModalConsentTab = ({ labels, primaryColor }: ModalConsentTabProps) => {
+export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
   return (
     <div>
       <div className={"rct-mb-2"}>
@@ -30,7 +30,7 @@ export const ModalConsentTab = ({ labels, primaryColor }: ModalConsentTabProps) 
           <a
             href={labels.main.descriptionPrivacyLink}
             className={"rct-font-bold"}
-            style={{ color: primaryColor }}
+            style={{ color: colors.primary }}
             target={"_blank"}
             rel="noreferrer"
           >

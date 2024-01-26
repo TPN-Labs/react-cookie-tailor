@@ -1,8 +1,9 @@
 import React from "react";
 import "../../css/out/rct_style.css";
+import { TailorColors } from "../../types";
 
 interface OutlineButtonProps {
-  primaryColor: string;
+  colors: TailorColors;
   text: string;
   width?: string;
   paddingY?: boolean;
@@ -11,7 +12,7 @@ interface OutlineButtonProps {
 }
 
 export const OutlineButton = ({
-  primaryColor,
+  colors,
   text,
   paddingY,
   marginY,
@@ -27,9 +28,9 @@ export const OutlineButton = ({
         "rct-cursor-pointer rct-font-sans rct-font-bold rct-text-white rct-tracking-wide rct-uppercase"
       }
       style={{
-        color: primaryColor,
-        borderColor: primaryColor,
-        backgroundColor: "whitesmoke",
+        color: colors.primary,
+        borderColor: colors.primary,
+        backgroundColor: colors.background,
         width,
       }}
       onClick={() => clickFunction()}

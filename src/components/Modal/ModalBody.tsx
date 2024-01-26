@@ -1,10 +1,16 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels, TailorCookiesDetails, TailorTab } from "../../types";
+import {
+  CookieCategoryDefinition,
+  Labels,
+  TailorColors,
+  TailorCookiesDetails,
+  TailorTab,
+} from "../../types";
 import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
 
 interface ModalBodyProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
   categories: CookieCategoryDefinition[];
   updateCategories: (categories: CookieCategoryDefinition[]) => void;
   cookies: TailorCookiesDetails;
@@ -15,13 +21,13 @@ export const ModalBody = ({
   categories,
   updateCategories,
   cookies,
-  primaryColor,
+  colors,
 }: ModalBodyProps) => {
   const modalTabs: TailorTab[] = [
     {
       id: "consent",
       title: labels.settings.headers.consent.title,
-      component: <ModalConsentTab labels={labels} primaryColor={primaryColor} />,
+      component: <ModalConsentTab labels={labels} colors={colors} />,
     },
     {
       id: "details",
@@ -37,7 +43,7 @@ export const ModalBody = ({
     {
       id: "about",
       title: labels.settings.headers.about.title,
-      component: <ModalAboutTab labels={labels} primaryColor={primaryColor} />,
+      component: <ModalAboutTab labels={labels} colors={colors} />,
     },
   ];
 
@@ -67,8 +73,8 @@ export const ModalBody = ({
                     "rct-cursor-pointer rct-text-slate-700 "
                   }
                   style={{
-                    borderColor: primaryColor,
-                    backgroundColor: activeTabKey === tab.id ? primaryColor : "white",
+                    borderColor: colors.primary,
+                    backgroundColor: activeTabKey === tab.id ? colors.primary : colors.background,
                   }}
                 >
                   <span
@@ -76,7 +82,7 @@ export const ModalBody = ({
                       "rct-text-md rct-font-bold rct-font-sans rct-tracking-wider rct-uppercase"
                     }
                     style={{
-                      color: activeTabKey === tab.id ? "white" : primaryColor,
+                      color: activeTabKey === tab.id ? colors.white : colors.primary,
                     }}
                   >
                     {tab.title}

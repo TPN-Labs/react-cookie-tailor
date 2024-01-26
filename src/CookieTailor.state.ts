@@ -12,9 +12,9 @@ export const defaultState: CookieTailorState = {
   style: {
     alignItems: "baseline",
     borderTop: "2px solid #2B567D",
-    background: "#FFF",
+    bottom: "0",
     color: "white",
-    display: "flex",
+    display: "block",
     flexWrap: "wrap",
     justifyContent: "space-between",
     left: "0",
@@ -46,8 +46,6 @@ export const defaultState: CookieTailorState = {
   },
   contentStyle: {
     display: "flex",
-    flex: "1 0 300px",
-    margin: "15px",
     justifyContent: "center",
   },
   overlayStyle: {
