@@ -12,10 +12,7 @@ export const FooterMain = ({ labels, colors }: FooterMainProps) => {
       <div className={"rct-grid rct-grid-cols-1 rct-mb-2"}>
         <div className={"rct-mb-2"}>
           <span
-            className={
-              "rct-font-sans rct-font-bold rct-text-xl " +
-              "rct-tracking-wide rct-mb-2"
-            }
+            className={"rct-font-sans rct-font-bold rct-text-xl rct-tracking-wide rct-mb-2"}
             style={{ color: colors.black }}
           >
             {labels.main.title}
@@ -23,10 +20,7 @@ export const FooterMain = ({ labels, colors }: FooterMainProps) => {
         </div>
         <div>
           <span
-            className={
-              "rct-font-sans rct-font-light rct-text-md rct-tracking-wide " +
-              "rct-leading-7"
-            }
+            className={"rct-font-sans rct-font-light rct-text-md rct-tracking-wide rct-leading-7"}
             style={{ color: colors.black }}
           >
             {labels.main.descriptionStart}

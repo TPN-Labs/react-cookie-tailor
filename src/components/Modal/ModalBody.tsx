@@ -1,5 +1,11 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels, TailorColors, TailorCookiesDetails, TailorTab } from "../../types";
+import {
+  CookieCategoryDefinition,
+  Labels,
+  TailorColors,
+  TailorCookiesDetails,
+  TailorTab,
+} from "../../types";
 import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
 
 interface ModalBodyProps {

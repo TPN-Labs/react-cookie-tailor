@@ -2,9 +2,10 @@ import React, { FunctionComponent, ReactNode } from "react";
 import {
   CookieCategory,
   Labels,
-  SAME_SITE_OPTIONS, TailorColors,
+  SAME_SITE_OPTIONS,
+  TailorColors,
   TailorCookiesDetails,
-  VISIBILITY_OPTIONS
+  VISIBILITY_OPTIONS,
 } from "./types";
 import { defaultColors, defaultCookies, defaultCookieTailorName, defaultLabels } from "./constants";
 

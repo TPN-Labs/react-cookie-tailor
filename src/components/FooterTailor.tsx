@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { CookieCategory, CookieCategoryDefinition, Labels, TailorColors, TailorCookiesDetails } from "../types";
+import {
+  CookieCategory,
+  CookieCategoryDefinition,
+  Labels,
+  TailorColors,
+  TailorCookiesDetails,
+} from "../types";
 import { getCategoryTitleAndDescription } from "../constants";
 import { FooterBar, FooterMain, FooterTrailing } from "./Footer";
 import "../css/out/rct_style.css";

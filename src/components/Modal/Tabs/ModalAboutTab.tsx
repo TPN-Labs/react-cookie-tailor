@@ -8,7 +8,10 @@ interface ModalAboutTabProps {
 
 export const ModalAboutTab = ({ labels, colors }: ModalAboutTabProps) => {
   return (
-    <div className={"rct-font-sans rct-tracking-wide rct-font-light"} style={{ color: colors.black }}>
+    <div
+      className={"rct-font-sans rct-tracking-wide rct-font-light"}
+      style={{ color: colors.black }}
+    >
       <p>{labels.settings.headers.about.description1}</p>
       <p>{labels.settings.headers.about.description2}</p>
       <p>{labels.settings.headers.about.description3}</p>
