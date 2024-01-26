@@ -4,7 +4,7 @@ import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
-import { POSITION_OPTIONS, SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
+import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
 import { getCookieTailorValue, getLegacyCookieName } from "./utilities";
 import "./css/out/rct_style.css";
 
@@ -163,25 +163,25 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     }
 
     const {
-      cookies,
+      colors,
       containerClasses,
       contentClasses,
       contentStyle,
+      cookies,
+      cookiesCategories,
       customContainerAttributes,
       customContentAttributes,
       disableStyles,
       labels,
-      cookiesCategories,
-      location,
-      primaryColor,
       overlay,
       overlayClasses,
       overlayStyle,
       style,
     } = this.props;
 
-    let myStyle: CSSProperties = {};
-    let myContentStyle: CSSProperties = {};
+    const tailorColors = colors || defaultTailorProps.colors;
+    let myStyle: CSSProperties;
+    let myContentStyle: CSSProperties;
     let myOverlayStyle: CSSProperties = {};
 
     if (disableStyles) {
@@ -196,17 +196,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       myOverlayStyle = Object.assign({}, { ...this.state.overlayStyle, ...overlayStyle });
     }
 
-    // syntactic sugar to enable user to easily select top / bottom
-    switch (location) {
-      case POSITION_OPTIONS.TOP:
-        myStyle.top = "0";
-        break;
-
-      case POSITION_OPTIONS.BOTTOM:
-        myStyle.bottom = "0";
-        break;
-    }
-
+    myStyle.backgroundColor = tailorColors.background;
     return (
       <ConditionalWrapper
         condition={overlay}
@@ -224,12 +214,12 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       >
         <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
-            <div className={"rct-container rct-place-self-center"}>
+            <div className={"rct-container rct-place-self-center rct-p-4"}>
               <FooterTailor
                 labels={labels || defaultTailorProps.labels}
                 cookies={cookies || defaultTailorProps.cookies}
                 categories={cookiesCategories || defaultTailorProps.cookiesCategories}
-                primaryColor={primaryColor || defaultTailorProps.primaryColor}
+                colors={tailorColors}
                 funcAccept={this.accept}
                 funcDecline={this.decline}
               />

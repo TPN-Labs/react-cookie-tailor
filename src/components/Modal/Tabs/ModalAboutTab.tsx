@@ -1,14 +1,14 @@
 import React from "react";
-import { Labels } from "../../../types";
+import { Labels, TailorColors } from "../../../types";
 
 interface ModalAboutTabProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
 }
 
-export const ModalAboutTab = ({ labels, primaryColor }: ModalAboutTabProps) => {
+export const ModalAboutTab = ({ labels, colors }: ModalAboutTabProps) => {
   return (
-    <div className={"rct-font-sans rct-text-black rct-tracking-wide rct-font-light"}>
+    <div className={"rct-font-sans rct-tracking-wide rct-font-light"} style={{ color: colors.black }}>
       <p>{labels.settings.headers.about.description1}</p>
       <p>{labels.settings.headers.about.description2}</p>
       <p>{labels.settings.headers.about.description3}</p>
@@ -18,7 +18,7 @@ export const ModalAboutTab = ({ labels, primaryColor }: ModalAboutTabProps) => {
         target="_blank"
         className={"rct-font-bold"}
         rel={"noreferrer"}
-        style={{ color: primaryColor }}
+        style={{ color: colors.black }}
       >
         {labels.settings.headers.about.cookiePolicyTitle}
       </a>
@@ -30,7 +30,7 @@ export const ModalAboutTab = ({ labels, primaryColor }: ModalAboutTabProps) => {
         target="_blank"
         className={"rct-font-bold"}
         rel={"noreferrer"}
-        style={{ color: primaryColor }}
+        style={{ color: colors.black }}
       >
         {labels.settings.headers.about.privacyPolicyTitle}
       </a>

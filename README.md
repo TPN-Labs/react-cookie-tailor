@@ -8,11 +8,13 @@
 
 ## 🖼️ Default look
 
-![default look](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/default.png)
+| Footer |
+|:------:|
+| ![default look](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/default.png) |
 
-|                                                 Details                                                 | About |
-|:-------------------------------------------------------------------------------------------------------:|:-------------------------: |
-| ![about](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/modal_details.png)  |  ![about](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/modal_about.png) |
+|                                                 Details                                                 |                                                About                                                 |
+|:-------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|
+| ![about](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/modal_details.png)  | ![about](https://raw.githubusercontent.com/TPN-Labs/react-cookie-tailor/main/images/modal_about.png) |
 
 
 ## 🎬 Demo
@@ -59,7 +61,7 @@ Then you can use the component anywhere in your React app like so:
 <CookieTailor/>
 ```
 
-### 🌐 Translations
+### Translations
 
 You can provide translations for the text using the `labels` property. By default, the library will use the English
 translations. The default values can be found in [constants/defaultLabels.ts](https://github.com/TPN-Labs/react-cookie-tailor/blob/main/src/constants/defaultLabels.ts)
@@ -81,13 +83,19 @@ const labels = {
 <CookieTailor labels={labels}/>
 ```
 
-### Just one color
+### Customizing the colors
 
-At this moment, we use only one color for highlighting various elements such as buttons, links, etc.
-You can change the color by using the `primaryColor` property. By default, the color is `#2B567D` (blue).
+You can customize the colors by using the `colors` property. By default, the library will use the following colors:
 
 ```js
-<CookieTailor primaryColor="#2B567D"/>
+const colors = {
+  primary: "#2B567D",
+  background: "#F5F1F1",
+  white: "#FFFFFF",
+  black: "#000000",
+}
+
+<CookieTailor colors={colors}/>
 ```
 
 ### Providing your cookies details
@@ -143,48 +151,47 @@ console.log(resetCookieConsentValue());
 
 | Prop                          |                    Type                     | Default value                        | Description                                                                                                                             |
 | ----------------------------- | :-----------------------------------------: | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| location                      |      string, "top", "bottom" or "none"      | "bottom"                             | Syntactic sugar to easily enable you to place the bar at the top or the bottom of the browser window. Use "none" to disable.            |
-| visible                       | string, "show", "hidden" or "byCookieValue" | "byCookieValue"                      | Force the consent bar visibility. If "byCookieValue", visibility are defined by cookie consent existence.                               |
-| children                      |          string or React component          |                                      | Content to appear inside the bar                                                                                                        |
-| disableStyles                 |                   boolean                   | false                                | If enabled the component will have no default style. (you can still supply style through props)                                         |
-| hideOnAccept                  |                   boolean                   | true                                 | If disabled the component will not hide it self after the accept button has been clicked. You will need to hide yourself (see onAccept) |
-| buttonText                    |          string or React component          | "I understand"                       | Text to appear on the button                                                                                                            |
-| declineButtonText             |          string or React component          | "I decline"                          | Text to appear on the decline button                                                                                                    |
-| cookieName                    |                   string                    | "CookieConsent"                      | Name of the cookie used to track whether the user has agreed. Note that you also have to pass this to the `getCookieConsentValue` and `resetCookieConsentValue` functions as they default to "CookieConsent" as well.                                                                         |
-| cookieValue                   |         string or boolean or number         | true                                 | Value to be saved under the cookieName.                                                                                                 |
-| declineCookieValue            |         string or boolean or number         | false                                | Value to be saved under the cookieName when declined.                                                                                   |
-| setDeclineCookie              |                   boolean                   | true                                 | Whether to set a cookie when the user clicks "decline"                                                                                  |
-| onAccept                      |                  function                   | `() => {}`                           | Function to be called after the accept button has been clicked.                                                                         |
-| onDecline                     |                  function                   | `() => {}`                           | Function to be called after the decline button has been clicked.                                                                        |
-| debug                         |                   boolean                   | undefined                            | Bar will be drawn regardless of cookie for debugging purposes.                                                                          |
-| expires                       |                   number                    | 365                                  | Number of days before the cookie expires.                                                                                               |
-| extraCookieOptions            |                   object                    | `{}`                                 | Extra info (apart from expiry date) to add to the cookie                                                                                |
-| overlay                       |                   boolean                   | false                                | Whether to show a page obscuring overlay or not.                                                                                        |
-| containerClasses              |                   string                    | ""                                   | CSS classes to apply to the surrounding container                                                                                       |
-| buttonClasses                 |                   string                    | ""                                   | CSS classes to apply to the button                                                                                                      |
-| buttonWrapperClasses          |                   string                    | ""                                   | CSS classes to apply to the div wrapping the buttons                                                                                    |
-| customButtonWrapperAttributes |   `React.HTMLAttributes<HTMLDivElement>`    | `{}`                                 | Allows you to set custom (data) attributes on the button wrapper div                                                                    |
-| declineButtonClasses          |                   string                    | ""                                   | CSS classes to apply to the decline button                                                                                              |
-| buttonId                      |                   string                    | ""                                   | Id to apply to the button                                                                                                               |
-| declineButtonId               |                   string                    | ""                                   | Id to apply to the decline button                                                                                                       |
-| contentClasses                |                   string                    | ""                                   | CSS classes to apply to the content                                                                                                     |
-| overlayClasses                |                   string                    | ""                                   | CSS classes to apply to the surrounding overlay                                                                                         |
-| disableButtonStyles           |                   boolean                   | false                                | If enabled the button will have no default style. (you can still supply style through props)                                            |
-| enableDeclineButton           |                   boolean                   | false                                | If enabled the decline button will be rendered                                                                                          |
-| flipButtons                   |                   boolean                   | false                                | If enabled the accept and decline buttons will be flipped                                                                               |
 | ButtonComponent               |               React component               | button                               | React Component to render as a button.                                                                                                  |
-| sameSite                      |      string, "strict", "lax" or "none"      | none                                 | Cookies sameSite attribute value                                                                                                        |
-| cookieSecurity                |                   boolean                   | undefined                            | Cookie security level. Defaults to true unless running on http.                                                                         |
-| ariaAcceptLabel               |                   string                    | Accept cookies                       | Aria label to set on the accept button                                                                                                  |
-| ariaDeclineLabel              |                   string                    | Decline cookies                      | Aria label to set on the decline button                                                                                                 |
+| acceptOnOverlayClick          |                   boolean                   | false                                | Determines whether the cookies should be accepted after clicking on the overlay                                                         |
 | acceptOnScroll                |                   boolean                   | false                                | Defines whether "accept" should be fired after the user scrolls a certain distance (see acceptOnScrollPercentage)                       |
 | acceptOnScrollPercentage      |                   number                    | 25                                   | Percentage of the page height the user has to scroll to trigger the accept function if acceptOnScroll is enabled                        |
-| customContentAttributes       |                   object                    | `{}`                                 | Allows you to set custom (data) attributes on the content div                                                                           |
-| customContainerAttributes     |                   object                    | `{}`                                 | Allows you to set custom (data) attributes on the container div                                                                         |
-| onOverlayClick                |                  function                   | `() => {}`                           | allows you to react to a click on the overlay                                                                                           |
-| acceptOnOverlayClick          |                   boolean                   | false                                | Determines whether the cookies should be accepted after clicking on the overlay                                                         |
+| ariaAcceptLabel               |                   string                    | Accept cookies                       | Aria label to set on the accept button                                                                                                  |
+| ariaDeclineLabel              |                   string                    | Decline cookies                      | Aria label to set on the decline button                                                                                                 |
+| buttonClasses                 |                   string                    | ""                                   | CSS classes to apply to the button                                                                                                      |
+| buttonId                      |                   string                    | ""                                   | Id to apply to the button                                                                                                               |
+| buttonText                    |          string or React component          | "I understand"                       | Text to appear on the button                                                                                                            |
+| buttonWrapperClasses          |                   string                    | ""                                   | CSS classes to apply to the div wrapping the buttons                                                                                    |
+| children                      |          string or React component          |                                      | Content to appear inside the bar                                                                                                        |
+| containerClasses              |                   string                    | ""                                   | CSS classes to apply to the surrounding container                                                                                       |
+| contentClasses                |                   string                    | ""                                   | CSS classes to apply to the content                                                                                                     |
+| cookieName                    |                   string                    | "CookieConsent"                      | Name of the cookie used to track whether the user has agreed. Note that you also have to pass this to the `getCookieConsentValue` and `resetCookieConsentValue` functions as they default to "CookieConsent" as well.                                                                         |
+| cookieSecurity                |                   boolean                   | undefined                            | Cookie security level. Defaults to true unless running on http.                                                                         |
+| cookieValue                   |         string or boolean or number         | true                                 | Value to be saved under the cookieName.                                                                                                 |
 | customButtonProps             |                   object                    | `{}`                                 | Allows you to set custom props on the button component                                                                                  |
+| customButtonWrapperAttributes |   `React.HTMLAttributes<HTMLDivElement>`    | `{}`                                 | Allows you to set custom (data) attributes on the button wrapper div                                                                    |
+| customContainerAttributes     |                   object                    | `{}`                                 | Allows you to set custom (data) attributes on the container div                                                                         |
+| customContentAttributes       |                   object                    | `{}`                                 | Allows you to set custom (data) attributes on the content div                                                                           |
 | customDeclineButtonProps      |                   object                    | `{}`                                 | Allows you to set custom props on the decline button component                                                                          |
+| debug                         |                   boolean                   | undefined                            | Bar will be drawn regardless of cookie for debugging purposes.                                                                          |
+| declineButtonClasses          |                   string                    | ""                                   | CSS classes to apply to the decline button                                                                                              |
+| declineButtonId               |                   string                    | ""                                   | Id to apply to the decline button                                                                                                       |
+| declineButtonText             |          string or React component          | "I decline"                          | Text to appear on the decline button                                                                                                    |
+| declineCookieValue            |         string or boolean or number         | false                                | Value to be saved under the cookieName when declined.                                                                                   |
+| disableButtonStyles           |                   boolean                   | false                                | If enabled the button will have no default style. (you can still supply style through props)                                            |
+| disableStyles                 |                   boolean                   | false                                | If enabled the component will have no default style. (you can still supply style through props)                                         |
+| enableDeclineButton           |                   boolean                   | false                                | If enabled the decline button will be rendered                                                                                          |
+| expires                       |                   number                    | 365                                  | Number of days before the cookie expires.                                                                                               |
+| extraCookieOptions            |                   object                    | `{}`                                 | Extra info (apart from expiry date) to add to the cookie                                                                                |
+| flipButtons                   |                   boolean                   | false                                | If enabled the accept and decline buttons will be flipped                                                                               |
+| hideOnAccept                  |                   boolean                   | true                                 | If disabled the component will not hide it self after the accept button has been clicked. You will need to hide yourself (see onAccept) |
+| onAccept                      |                  function                   | `() => {}`                           | Function to be called after the accept button has been clicked.                                                                         |
+| onDecline                     |                  function                   | `() => {}`                           | Function to be called after the decline button has been clicked.                                                                        |
+| onOverlayClick                |                  function                   | `() => {}`                           | allows you to react to a click on the overlay                                                                                           |
+| overlay                       |                   boolean                   | false                                | Whether to show a page obscuring overlay or not.                                                                                        |
+| overlayClasses                |                   string                    | ""                                   | CSS classes to apply to the surrounding overlay                                                                                         |
+| sameSite                      |      string, "strict", "lax" or "none"      | none                                 | Cookies sameSite attribute value                                                                                                        |
+| setDeclineCookie              |                   boolean                   | true                                 | Whether to set a cookie when the user clicks "decline"                                                                                  |
+| visible                       | string, "show", "hidden" or "byCookieValue" | "byCookieValue"                      | Force the consent bar visibility. If "byCookieValue", visibility are defined by cookie consent existence.                               |
 
 
 ## 🐞 Debugging it

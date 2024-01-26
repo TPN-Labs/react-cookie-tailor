@@ -1,21 +1,22 @@
 import React from "react";
-import { Labels } from "../../types";
+import { Labels, TailorColors } from "../../types";
 
 interface FooterMainProps {
   labels: Labels;
-  primaryColor: string;
+  colors: TailorColors;
 }
 
-export const FooterMain = ({ labels, primaryColor }: FooterMainProps) => {
+export const FooterMain = ({ labels, colors }: FooterMainProps) => {
   return (
     <>
       <div className={"rct-grid rct-grid-cols-1 rct-mb-2"}>
         <div className={"rct-mb-2"}>
           <span
             className={
-              "rct-font-sans rct-text-black rct-font-bold rct-text-xl " +
+              "rct-font-sans rct-font-bold rct-text-xl " +
               "rct-tracking-wide rct-mb-2"
             }
+            style={{ color: colors.black }}
           >
             {labels.main.title}
           </span>
@@ -23,16 +24,17 @@ export const FooterMain = ({ labels, primaryColor }: FooterMainProps) => {
         <div>
           <span
             className={
-              "rct-font-sans rct-text-black rct-font-light rct-text-md rct-tracking-wide " +
+              "rct-font-sans rct-font-light rct-text-md rct-tracking-wide " +
               "rct-leading-7"
             }
+            style={{ color: colors.black }}
           >
             {labels.main.descriptionStart}
             &nbsp;
             <a
               href={labels.main.descriptionPrivacyLink}
               className={"rct-font-bold"}
-              style={{ color: primaryColor }}
+              style={{ color: colors.black }}
               target={"_blank"}
               rel="noreferrer"
             >

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CookieCategory, CookieCategoryDefinition, Labels, TailorCookiesDetails } from "../types";
+import { CookieCategory, CookieCategoryDefinition, Labels, TailorColors, TailorCookiesDetails } from "../types";
 import { getCategoryTitleAndDescription } from "../constants";
 import { FooterBar, FooterMain, FooterTrailing } from "./Footer";
 import "../css/out/rct_style.css";
@@ -8,7 +8,7 @@ import { Modal } from "./Modal";
 interface FooterTailorProps {
   labels: Labels;
   categories: CookieCategory[];
-  primaryColor: string;
+  colors: TailorColors;
   cookies: TailorCookiesDetails;
   funcAccept: () => void;
   funcDecline: () => void;
@@ -17,7 +17,7 @@ interface FooterTailorProps {
 const FooterTailor = ({
   labels,
   categories,
-  primaryColor,
+  colors,
   cookies,
   funcAccept,
   funcDecline,
@@ -58,7 +58,7 @@ const FooterTailor = ({
       <Modal
         labels={labels}
         showModal={modalOpen}
-        primaryColor={primaryColor}
+        colors={colors}
         categories={enabledCategories}
         updateCategories={setEnabledCategories}
         cookies={cookies}
@@ -69,14 +69,14 @@ const FooterTailor = ({
 
       <div className={"rct-flex rct-flex-row"}>
         <div className={"rct-basis-full md:rct-basis-9/12"}>
-          <FooterMain labels={labels} primaryColor={primaryColor} />
+          <FooterMain labels={labels} colors={colors} />
         </div>
         <div className={"rct-basis-full md:rct-basis-3/12"}>
           <FooterTrailing
             labels={labels}
             funcAccept={funcAccept}
             funcDecline={funcDecline}
-            primaryColor={primaryColor}
+            colors={colors}
           />
         </div>
       </div>
@@ -85,7 +85,7 @@ const FooterTailor = ({
         labels={labels}
         categories={enabledCategories}
         updateCategories={setEnabledCategories}
-        primaryColor={primaryColor}
+        colors={colors}
         toggleModal={() => {
           setModalOpen(!modalOpen);
         }}

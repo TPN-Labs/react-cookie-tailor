@@ -7,6 +7,6 @@ import CookieTailor from "../../src";
 export const DefaultTemplate: Story<any> = () => (
   <>
     <Intro />
-    <CookieTailor/>
+    <CookieTailor debug={true}/>
   </>
 );

@@ -1,8 +1,9 @@
 import React from "react";
 import "../../css/out/rct_style.css";
+import { TailorColors } from "../../types";
 
 interface PrimaryButtonProps {
-  primaryColor: string;
+  colors: TailorColors;
   text: string;
   width?: string;
   paddingY?: boolean;
@@ -11,7 +12,7 @@ interface PrimaryButtonProps {
 }
 
 export const PrimaryButton = ({
-  primaryColor,
+  colors,
   text,
   paddingY,
   marginY,
@@ -24,9 +25,9 @@ export const PrimaryButton = ({
         `rct-float-right ${paddingY ? "rct-py-4" : "rct-py-0"} ${
           marginY ? "rct-my-2" : "rct-my-0"
         } rct-my-${marginY}` +
-        "rct-cursor-pointer rct-font-sans rct-font-bold rct-text-white rct-tracking-wide rct-uppercase"
+        "rct-cursor-pointer rct-font-sans rct-font-bold rct-tracking-wide rct-uppercase"
       }
-      style={{ backgroundColor: primaryColor, width }}
+      style={{ backgroundColor: colors.primary, color: colors.background, width }}
       onClick={() => clickFunction()}
     >
       {text}
