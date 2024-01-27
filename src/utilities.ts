@@ -43,3 +43,17 @@ export const resetCookieTailorValue = (name: string = defaultCookieName) => {
 export const getLegacyCookieName = (name: string) => {
   return `${name}-legacy`;
 };
+
+export const groupBy = (list: any[], groupKey: any) => {
+  const map = new Map();
+  list.forEach((item) => {
+    const key = item[groupKey];
+    const collection = map.get(key);
+    if (!collection) {
+      map.set(key, [item]);
+    } else {
+      collection.push(item);
+    }
+  });
+  return map;
+};

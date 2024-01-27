@@ -1,32 +1,18 @@
 import React from "react";
-import { CookieCategoryDefinition, TailorLabels, TailorColors } from "../../types";
+import { CookieCategoryDefinition, Label, TailorColors } from "../../types";
+import { useCategoryContext } from "../../hooks";
 
 interface FooterBarProps {
-  labels: TailorLabels;
-  categories: CookieCategoryDefinition[];
-  updateCategories: (categories: CookieCategoryDefinition[]) => void;
+  labels: Label;
   colors: TailorColors;
   toggleModal: () => void;
 }
 
-export const FooterBar = ({
-  labels,
-  categories,
-  updateCategories,
-  colors,
-  toggleModal,
-}: FooterBarProps) => {
+export const FooterBar = ({ labels, colors, toggleModal }: FooterBarProps) => {
+  const { enabledCategories, modifyCategory } = useCategoryContext();
   const switchCheckbox = (category: CookieCategoryDefinition) => {
-    const newCategories = categories.map((enabledCategory) => {
-      if (enabledCategory.type === category.type) {
-        return {
-          ...enabledCategory,
-          status: !enabledCategory.status,
-        };
-      }
-      return enabledCategory;
-    });
-    updateCategories(newCategories);
+    category.status = !category.status;
+    modifyCategory(category);
   };
 
   return (
@@ -36,7 +22,7 @@ export const FooterBar = ({
         "md:rct-grid-cols-4 lg:rct-grid-cols-5 grid-rows-3"
       }
     >
-      {categories.map((category, idx) => (
+      {enabledCategories.map((category: CookieCategoryDefinition, idx: number) => (
         <div className={"rct-border rct-m-3 rct-rounded"} key={`category_${idx}`}>
           <label
             htmlFor={`${category.type}_checkbox`}

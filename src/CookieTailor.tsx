@@ -4,10 +4,16 @@ import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
-import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
+import {
+  CookieCategoryDefinition,
+  SAME_SITE_OPTIONS,
+  TailorResponse,
+  VISIBILITY_OPTIONS,
+} from "./types";
 import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
 import { defaultCookiePrefix } from "./constants";
+import { CategoryProvider } from "./hooks";
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultTailorProps;
@@ -35,7 +41,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   /**
    * Set a persistent accept cookie
    */
-  accept = (acceptedByScrolling = false) => {
+  accept = (categories: CookieCategoryDefinition[]) => {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
       ...defaultTailorProps,
       ...this.props,
@@ -43,7 +49,12 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
 
     this.setCookie(cookieName, cookieValue);
 
-    onAccept(acceptedByScrolling ?? false);
+    const response: TailorResponse = {
+      cookieId: this.getDefaultCookieId() || null,
+      cookieCreation: getTailorCookieValue(`${defaultCookiePrefix}created`) || null,
+      categories,
+    };
+    onAccept(response);
 
     if (hideOnAccept) {
       this.setState({ visible: false });
@@ -60,7 +71,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       ...this.props,
     };
     if (acceptOnOverlayClick) {
-      this.accept();
+      this.accept([]);
     }
     onOverlayClick();
   }
@@ -138,7 +149,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       100;
 
     if (percentage > acceptOnScrollPercentage) {
-      this.accept(true);
+      this.accept([]);
     }
   };
 
@@ -196,7 +207,11 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       style,
     } = this.props;
 
+    const tailorCookies = cookies || defaultTailorProps.cookies;
     const tailorColors = colors || defaultTailorProps.colors;
+    const tailorCategories = cookiesCategories || defaultTailorProps.cookiesCategories;
+    const tailorLabels = labels || defaultTailorProps.labels;
+
     let myStyle: CSSProperties;
     let myContentStyle: CSSProperties;
     let myOverlayStyle: CSSProperties = {};
@@ -233,14 +248,15 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
         <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
             <div className={"rct-container rct-place-self-center rct-p-4"}>
-              <FooterTailor
-                labels={labels || defaultTailorProps.labels}
-                cookies={cookies || defaultTailorProps.cookies}
-                categories={cookiesCategories || defaultTailorProps.cookiesCategories}
-                colors={tailorColors}
-                funcAccept={this.accept}
-                funcDecline={this.decline}
-              />
+              <CategoryProvider labels={tailorLabels} categories={tailorCategories}>
+                <FooterTailor
+                  labels={tailorLabels}
+                  cookies={tailorCookies}
+                  colors={tailorColors}
+                  funcAccept={this.accept}
+                  funcDecline={this.decline}
+                />
+              </CategoryProvider>
             </div>
           </div>
         </div>

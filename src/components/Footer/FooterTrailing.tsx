@@ -1,12 +1,13 @@
 import React from "react";
-import { TailorLabels, TailorColors } from "../../types";
+import { CookieCategoryDefinition, Label, TailorColors } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton, PrimaryButton } from "../Buttons";
+import { useCategoryContext } from "../../hooks";
 
 interface FooterTrailingProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
-  funcAccept: () => void;
+  funcAccept: (categories: CookieCategoryDefinition[]) => void;
   funcDecline: () => void;
 }
 
@@ -16,6 +17,7 @@ export const FooterTrailing = ({
   funcDecline,
   colors,
 }: FooterTrailingProps) => {
+  const { enabledCategories } = useCategoryContext();
   const buttonWidth = "240px";
 
   return (
@@ -25,7 +27,9 @@ export const FooterTrailing = ({
           colors={colors}
           text={labels.main.buttonAllow}
           width={buttonWidth}
-          clickFunction={funcAccept}
+          clickFunction={() => {
+            funcAccept(enabledCategories);
+          }}
           marginY
           paddingY
         />

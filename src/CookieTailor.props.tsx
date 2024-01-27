@@ -1,10 +1,11 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import {
   CookieCategory,
-  TailorLabels,
+  Label,
   SAME_SITE_OPTIONS,
   TailorColors,
   TailorCookiesDetails,
+  TailorResponse,
   VISIBILITY_OPTIONS,
 } from "./types";
 import { defaultColors, defaultCookies, defaultLabels, defaultCookieName } from "./constants";
@@ -50,10 +51,10 @@ export interface CookieTailorProps {
   flipButtons?: boolean;
   hideOnAccept?: boolean;
   hideOnDecline?: boolean;
-  labels?: TailorLabels;
+  labels?: Label;
   location?: string;
   primaryColor?: string;
-  onAccept?: (acceptedByScrolling: boolean) => void;
+  onAccept?: (response: TailorResponse) => void;
   onDecline?: () => void;
   onOverlayClick?: () => void;
   overlay?: boolean;
@@ -87,7 +88,7 @@ export const defaultTailorProps = {
   cookieName: defaultCookieName,
   cookieValue: "true",
   cookiesCategories: [
-    CookieCategory.PREFRENCES,
+    CookieCategory.PREFERENCES,
     CookieCategory.STATISTICS,
     CookieCategory.MARKETING,
   ],
@@ -105,7 +106,7 @@ export const defaultTailorProps = {
   hideOnAccept: true,
   hideOnDecline: true,
   labels: defaultLabels,
-  onAccept: (_acceptedByScrolling: boolean) => {},
+  onAccept: (_response: TailorResponse) => {},
   onDecline: () => {},
   onOverlayClick: () => {},
   overlay: false,

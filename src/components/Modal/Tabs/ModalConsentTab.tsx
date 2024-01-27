@@ -1,10 +1,10 @@
 import React from "react";
-import { TailorLabels, TailorColors } from "../../../types";
+import { Label, TailorColors } from "../../../types";
 import { defaultCookiePrefix } from "../../../constants";
 import { getTailorCookieValue } from "../../../utilities";
 
 interface ModalConsentTabProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
 }
 
@@ -18,19 +18,20 @@ export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
     <div>
       <div className={"rct-mb-2"}>
         <span
-          className={
-            "rct-font-sans rct-text-black rct-font-bold rct-text-xl rct-tracking-wide rct-mb-2"
-          }
+          className={"rct-font-sans rct-font-bold rct-text-xl rct-tracking-wide rct-mb-2"}
+          style={{
+            color: colors.black,
+          }}
         >
           {labels.main.title}
         </span>
       </div>
       <div>
         <span
-          className={
-            "rct-font-sans rct-text-black rct-font-light rct-text-md rct-tracking-wide " +
-            "rct-leading-7"
-          }
+          className={"rct-font-sans rct-font-light rct-text-md rct-tracking-wide rct-leading-7"}
+          style={{
+            color: colors.black,
+          }}
         >
           {labels.main.descriptionStart}
           &nbsp;

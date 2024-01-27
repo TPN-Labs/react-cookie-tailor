@@ -1,63 +1,19 @@
-import React, { useEffect, useState } from "react";
-import {
-  CookieCategory,
-  CookieCategoryDefinition,
-  TailorLabels,
-  TailorColors,
-  TailorCookiesDetails,
-} from "../types";
-import { getCategoryTitleAndDescription } from "../constants";
+import React from "react";
+import { CookieCategoryDefinition, Label, TailorColors, TailorCookiesDetails } from "../types";
 import { FooterBar, FooterMain, FooterTrailing } from "./Footer";
 import "../css/out/rct_style.css";
 import { Modal } from "./Modal";
 
 interface FooterTailorProps {
-  labels: TailorLabels;
-  categories: CookieCategory[];
+  labels: Label;
   colors: TailorColors;
   cookies: TailorCookiesDetails;
-  funcAccept: () => void;
+  funcAccept: (categories: CookieCategoryDefinition[]) => void;
   funcDecline: () => void;
 }
 
-const FooterTailor = ({
-  labels,
-  categories,
-  colors,
-  cookies,
-  funcAccept,
-  funcDecline,
-}: FooterTailorProps) => {
-  const [modalOpen, setModalOpen] = React.useState<boolean>(true);
-
-  const mandatoryCategory: CookieCategoryDefinition = {
-    id: 0,
-    title: getCategoryTitleAndDescription(labels, CookieCategory.MANDATORY).title,
-    description: getCategoryTitleAndDescription(labels, CookieCategory.MANDATORY).description,
-    enabled: false,
-    status: true,
-    type: CookieCategory.MANDATORY,
-  };
-
-  const [enabledCategories, setEnabledCategories] = useState<CookieCategoryDefinition[]>([
-    mandatoryCategory,
-  ]);
-
-  const providedCategories: CookieCategoryDefinition[] = categories.map((category, idx) => {
-    const categoryTitleAndDescription = getCategoryTitleAndDescription(labels, category);
-    return {
-      id: idx + 1,
-      title: categoryTitleAndDescription.title,
-      description: categoryTitleAndDescription.description,
-      enabled: true,
-      status: true,
-      type: category,
-    };
-  });
-
-  useEffect(() => {
-    setEnabledCategories([mandatoryCategory, ...providedCategories]);
-  }, []);
+const FooterTailor = ({ labels, colors, cookies, funcAccept, funcDecline }: FooterTailorProps) => {
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 
   return (
     <div>
@@ -65,8 +21,6 @@ const FooterTailor = ({
         labels={labels}
         showModal={modalOpen}
         colors={colors}
-        categories={enabledCategories}
-        updateCategories={setEnabledCategories}
         cookies={cookies}
         toggleModal={() => {
           setModalOpen(!modalOpen);
@@ -89,8 +43,6 @@ const FooterTailor = ({
       <hr />
       <FooterBar
         labels={labels}
-        categories={enabledCategories}
-        updateCategories={setEnabledCategories}
         colors={colors}
         toggleModal={() => {
           setModalOpen(!modalOpen);

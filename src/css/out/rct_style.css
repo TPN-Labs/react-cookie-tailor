@@ -434,6 +434,10 @@ body.rct-modal-active {
   margin-top: 1rem;
 }
 
+.rct-mt-2 {
+  margin-top: 0.5rem;
+}
+
 .rct-inline-block {
   display: inline-block;
 }

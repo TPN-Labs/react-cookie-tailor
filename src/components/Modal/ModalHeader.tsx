@@ -1,8 +1,8 @@
 import React from "react";
-import { TailorLabels, TailorColors } from "../../types";
+import { Label, TailorColors } from "../../types";
 
 interface ModalHeaderProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
   toggleModal: () => void;
 }
