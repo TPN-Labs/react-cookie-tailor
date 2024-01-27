@@ -1,5 +1,10 @@
 import React from "react";
-import { CookieCategoryDefinition, TailorLabels, TailorColors, TailorCookiesDetails } from "../../types";
+import {
+  CookieCategoryDefinition,
+  TailorLabels,
+  TailorColors,
+  TailorCookiesDetails,
+} from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton } from "../Buttons";
 import { ModalHeader } from "./ModalHeader";

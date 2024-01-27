@@ -7,7 +7,7 @@ import { defaultCookieName } from "./constants";
  * to: https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
  * @param {*} name optional name of the cookie
  */
-export const getTailorCookieValue = (name:string = defaultCookieName) => {
+export const getTailorCookieValue = (name: string = defaultCookieName) => {
   const cookieValue = Cookies.get(name);
 
   // if the cookieValue is undefined check for the legacy cookie
@@ -22,7 +22,7 @@ export const getTailorCookieValue = (name:string = defaultCookieName) => {
  * Remove the cookie on browser in order to allow user to change their consent
  * @param {*} name optional name of the cookie
  */
-export const resetCookieTailorValue = (name:string = defaultCookieName) => {
+export const resetCookieTailorValue = (name: string = defaultCookieName) => {
   Cookies.remove(name);
 };
 

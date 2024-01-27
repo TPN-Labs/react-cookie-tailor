@@ -53,7 +53,8 @@ export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
       >
         <span className={"rct-font-bold"}>{labels.main.defaultCreation}: </span>
         <span>{clientCookieCreation}</span>
-        <br /><br />
+        <br />
+        <br />
         <span className={"rct-font-bold"}>{labels.main.defaultId}: </span>
         <span>{clientCookieId}</span>
       </div>

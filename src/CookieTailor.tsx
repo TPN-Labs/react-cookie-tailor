@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import React, { Component, CSSProperties } from "react";
 import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
@@ -153,10 +153,10 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   getDefaultCookieId = () => {
     const cookieName = `${defaultCookiePrefix}id`;
     return getTailorCookieValue(cookieName);
-  }
+  };
 
   createDefaultCookie = () => {
-    if(!this.getDefaultCookieId()) {
+    if (!this.getDefaultCookieId()) {
       const randomId = uuidv4();
       const cookieName = `${defaultCookiePrefix}id`;
       const cookieCreation = `${defaultCookiePrefix}created`;
@@ -164,7 +164,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       this.setCookie(cookieName, randomId);
       this.setCookie(cookieCreation, createdDateAsString);
     }
-  }
+  };
 
   render() {
     // If the bar shouldn't be visible don't render anything.
