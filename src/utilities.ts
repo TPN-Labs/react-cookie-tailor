@@ -7,7 +7,7 @@ import { defaultCookieName } from "./constants";
  * to: https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
  * @param {*} name optional name of the cookie
  */
-export const getCookieTailorValue = (name:string = defaultCookieName) => {
+export const getTailorCookieValue = (name:string = defaultCookieName) => {
   const cookieValue = Cookies.get(name);
 
   // if the cookieValue is undefined check for the legacy cookie

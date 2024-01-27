@@ -13,3 +13,16 @@ export interface TailorCookiesDetails {
   statistics?: TailorCookie[];
   unclassified?: TailorCookie[];
 }
+
+export interface TailorCookieProps {
+  name: string;
+  value: string;
+  domain: string;
+  path: string;
+  expires: number;
+  size: number;
+  httpOnly: boolean;
+  secure: boolean;
+  sameSite: string;
+  priority: string;
+}

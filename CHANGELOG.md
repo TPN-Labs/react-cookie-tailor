@@ -18,11 +18,12 @@ in the backend. The ID is stored as a cookie with the name `rct_cookie_id`.
 
 ### Updated
 
-- to be continued...
+- Every cookie created now has the `rct_` prefix
+- Created a prop called `colors` to control the colors of the library
 
 ### Removed
 
-- to be continued...
+- Unused props from README.md
 
 ## [[0.7.0](https://github.com/TPN-Labs/react-cookie-tailor/releases/tag/0.7.0)]
 

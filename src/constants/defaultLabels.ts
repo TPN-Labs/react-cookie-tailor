@@ -38,6 +38,8 @@ export const defaultLabels: TailorLabels = {
     buttonAllow: "Allow all",
     buttonDefault: "Allow default",
     buttonClose: "Close",
+    defaultId: "Client cookie identifier",
+    defaultCreation: "Client cookie creation date",
     descriptionStart:
       "For purposes such as displaying personalized content, we use " +
       "cookies or similar technologies. By clicking Accept, you agree to allow " +
