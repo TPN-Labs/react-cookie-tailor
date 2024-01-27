@@ -1,6 +1,6 @@
-import { Labels } from "../types";
+import { TailorLabels } from "../types";
 
-export const defaultLabels: Labels = {
+export const defaultLabels: TailorLabels = {
   cookieCategory: {
     mandatory: {
       title: "Mandatory",

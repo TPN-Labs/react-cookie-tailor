@@ -3,46 +3,140 @@ import { TailorCookiesDetails } from "../types";
 export const defaultCookies: TailorCookiesDetails = {
   mandatory: [
     {
-      title: "Mandatory Cookie",
-      description: "This is a mandatory cookie.",
+      domain: "tpn-labs.com",
+      title: "rct_cookie_consent",
+      description: "This is a mandatory cookie that stores the user's cookie consent preferences.",
       expiration: "1 year",
-      type: "mandatory",
+      type: "HTTP",
     },
     {
-      title: "Mandatory Cookie 2",
-      description: "This is a mandatory cookie.",
+      domain: "tpn-labs.com",
+      title: "tpn_cookie",
+      description: "This cookie is used to check if the user has accepted the cookie consent.",
       expiration: "Session",
-      type: "pixel",
+      type: "HTTP",
     },
   ],
   marketing: [
     {
-      title: "Marketing Cookie",
-      description: "This is a marketing cookie.",
+      domain: "Google",
+      title: "IDE",
+      description:
+        "Used by Google DoubleClick to register and report the website user's actions after viewing or clicking " +
+        "one of the advertiser's ads with the purpose of measuring the efficacy of an ad and to " +
+        "present targeted ads to the user.",
       expiration: "1 year",
-      type: "marketing",
+      type: "HTTP",
     },
+    {
+      domain: "Google",
+      title: "test_cookie",
+      description: "Used to check if the user's browser supports cookies.",
+      expiration: "Session",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "NID",
+      description: "Registers a unique ID that identifies a returning user's device. The ID is used for targeted ads.",
+      expiration: "6 months",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "1P_JAR",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "1 month",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "ANID",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "1 year",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "CONSENT",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "20 years",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "DV",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "1 day",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "HSID",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "2 years",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "SAPISID",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "2 years",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "SID",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "2 years",
+      type: "HTTP",
+    },
+    {
+      domain: "Google",
+      title: "SIDCC",
+      description: "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      expiration: "3 months",
+      type: "HTTP",
+    },
+    {
+      domain: "tpn-labs.com",
+      title: "marketing_cookie",
+      description: "This is a marketing cookie.",
+      expiration: "Session",
+      type: "HTTP",
+    },
+    {
+      domain: "tpn-labs.com",
+      title: "marketing_cookie_2",
+      description: "This is a marketing cookie.",
+      expiration: "Session",
+      type: "HTTP",
+    }
   ],
   preferences: [
     {
+      domain: "tpn-labs.com",
       title: "Preferences Cookie",
       description: "This is a preferences cookie.",
       expiration: "1 year",
       type: "preferences",
     },
     {
+      domain: "tpn-labs.com",
       title: "Preferences Cookie 2",
       description: "This is a preferences cookie.",
       expiration: "Session",
       type: "pixel",
     },
     {
+      domain: "tpn-labs.com",
       title: "Preferences Cookie 3",
       description: "This is a preferences cookie.",
       expiration: "Session",
       type: "pixel",
     },
     {
+      domain: "tpn-labs.com",
       title: "Preferences Cookie 4",
       description: "This is a preferences cookie.",
       expiration: "Session",
@@ -51,6 +145,7 @@ export const defaultCookies: TailorCookiesDetails = {
   ],
   statistics: [
     {
+      domain: "tpn-labs.com",
       title: "Statistics Cookie",
       description: "This is a statistics cookie.",
       expiration: "1 year",
@@ -59,6 +154,7 @@ export const defaultCookies: TailorCookiesDetails = {
   ],
   unclassified: [
     {
+      domain: "tpn-labs.com",
       title: "Unclassified Cookie",
       description: "This is an unclassified cookie.",
       expiration: "1 year",

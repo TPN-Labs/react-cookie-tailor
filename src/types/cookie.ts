@@ -1,4 +1,5 @@
 export interface TailorCookie {
+  domain: string;
   title: string;
   description: string;
   expiration: string;

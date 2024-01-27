@@ -1,7 +1,7 @@
 import React from "react";
 import {
   CookieCategoryDefinition,
-  Labels,
+  TailorLabels,
   TailorColors,
   TailorCookiesDetails,
   TailorTab,
@@ -9,7 +9,7 @@ import {
 import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
 
 interface ModalBodyProps {
-  labels: Labels;
+  labels: TailorLabels;
   colors: TailorColors;
   categories: CookieCategoryDefinition[];
   updateCategories: (categories: CookieCategoryDefinition[]) => void;
