@@ -8,6 +8,7 @@ import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
 import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
 import { defaultCookiePrefix } from "./constants";
+import { CategoryProvider } from "./hooks/useCookieCategory";
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultTailorProps;
@@ -196,7 +197,11 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       style,
     } = this.props;
 
+    const tailorCookies = cookies || defaultTailorProps.cookies;
     const tailorColors = colors || defaultTailorProps.colors;
+    const tailorCategories = cookiesCategories || defaultTailorProps.cookiesCategories;
+    const tailorLabels = labels || defaultTailorProps.labels;
+
     let myStyle: CSSProperties;
     let myContentStyle: CSSProperties;
     let myOverlayStyle: CSSProperties = {};
@@ -233,14 +238,15 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
         <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
           <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
             <div className={"rct-container rct-place-self-center rct-p-4"}>
-              <FooterTailor
-                labels={labels || defaultTailorProps.labels}
-                cookies={cookies || defaultTailorProps.cookies}
-                categories={cookiesCategories || defaultTailorProps.cookiesCategories}
-                colors={tailorColors}
-                funcAccept={this.accept}
-                funcDecline={this.decline}
-              />
+              <CategoryProvider labels={tailorLabels} categories={tailorCategories}>
+                <FooterTailor
+                  labels={tailorLabels}
+                  cookies={tailorCookies}
+                  colors={tailorColors}
+                  funcAccept={this.accept}
+                  funcDecline={this.decline}
+                />
+              </CategoryProvider>
             </div>
           </div>
         </div>

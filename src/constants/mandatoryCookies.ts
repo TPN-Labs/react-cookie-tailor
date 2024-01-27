@@ -7,7 +7,7 @@ export const getCategoryTitleAndDescription = (labels: TailorLabels, category: C
         title: labels.cookieCategory.mandatory.title,
         description: labels.cookieCategory.mandatory.description,
       };
-    case CookieCategory.PREFRENCES:
+    case CookieCategory.PREFERENCES:
       return {
         title: labels.cookieCategory.preferences.title,
         description: labels.cookieCategory.preferences.description,

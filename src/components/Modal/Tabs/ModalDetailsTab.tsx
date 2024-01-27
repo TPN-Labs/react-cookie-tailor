@@ -1,33 +1,28 @@
 import React from "react";
-import { CookieCategoryDefinition, TailorCookiesDetails } from "../../../types";
+import { CookieCategoryDefinition, TailorColors, TailorCookiesDetails } from "../../../types";
+import { ModalCookieContainer } from "./ModalCookieContainer";
+import { useCategoryContext } from "../../../hooks";
 
 interface ModalDetailsTabProps {
+  colors: TailorColors;
   cookies: TailorCookiesDetails;
-  categories: CookieCategoryDefinition[];
-  updateCategories: (categories: CookieCategoryDefinition[]) => void;
 }
 
-export const ModalDetailsTab = ({
-  cookies,
-  categories,
-  updateCategories,
-}: ModalDetailsTabProps) => {
+export const ModalDetailsTab = ({ colors, cookies }: ModalDetailsTabProps) => {
+  const { enabledCategories } = useCategoryContext();
+
   return (
-    <div className={"rct-text-black"}>
-      {categories.map((category) => (
-        <div key={`category_${category.id}`}>
-          <h2>{category.title}</h2>
-          <p>{category.description}</p>
-        </div>
-      ))}
-      <br />
-      {cookies.mandatory && (
-        <div>
-          <h2>Mandatory</h2>
-          <p>{cookies.mandatory.map((cookie) => cookie.title).join(", ")}</p>
-        </div>
-      )}
-      <button onClick={() => updateCategories(categories)}>Update</button>
+    <div>
+      {enabledCategories.map((category: CookieCategoryDefinition) => {
+        return (
+          <ModalCookieContainer
+            key={category.id}
+            colors={colors}
+            cookies={cookies.data.filter((cookie) => cookie.category === category.type)}
+            type={category}
+          />
+        );
+      })}
     </div>
   );
 };

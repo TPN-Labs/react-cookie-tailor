@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  CookieCategoryDefinition,
-  TailorLabels,
-  TailorColors,
-  TailorCookiesDetails,
-} from "../../types";
+import { TailorLabels, TailorColors, TailorCookiesDetails } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton } from "../Buttons";
 import { ModalHeader } from "./ModalHeader";
@@ -14,21 +9,11 @@ interface ModalProps {
   labels: TailorLabels;
   colors: TailorColors;
   showModal: boolean;
-  categories: CookieCategoryDefinition[];
-  updateCategories: (categories: CookieCategoryDefinition[]) => void;
   cookies: TailorCookiesDetails;
   toggleModal: () => void;
 }
 
-export const Modal = ({
-  labels,
-  showModal,
-  colors,
-  toggleModal,
-  categories,
-  updateCategories,
-  cookies,
-}: ModalProps) => {
+export const Modal = ({ labels, showModal, colors, toggleModal, cookies }: ModalProps) => {
   return (
     <div
       className={`rct-modal ${
@@ -55,13 +40,7 @@ export const Modal = ({
         <div className="modal-content rct-text-left">
           <ModalHeader toggleModal={toggleModal} labels={labels} colors={colors} />
 
-          <ModalBody
-            colors={colors}
-            labels={labels}
-            categories={categories}
-            updateCategories={updateCategories}
-            cookies={cookies}
-          />
+          <ModalBody colors={colors} labels={labels} cookies={cookies} />
 
           <div className={"rct-flex rct-justify-end rct-py-2 rct-px-2"}>
             <OutlineButton

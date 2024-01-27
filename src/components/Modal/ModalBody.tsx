@@ -1,28 +1,14 @@
 import React from "react";
-import {
-  CookieCategoryDefinition,
-  TailorLabels,
-  TailorColors,
-  TailorCookiesDetails,
-  TailorTab,
-} from "../../types";
+import { TailorLabels, TailorColors, TailorCookiesDetails, TailorTab } from "../../types";
 import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
 
 interface ModalBodyProps {
   labels: TailorLabels;
   colors: TailorColors;
-  categories: CookieCategoryDefinition[];
-  updateCategories: (categories: CookieCategoryDefinition[]) => void;
   cookies: TailorCookiesDetails;
 }
 
-export const ModalBody = ({
-  labels,
-  categories,
-  updateCategories,
-  cookies,
-  colors,
-}: ModalBodyProps) => {
+export const ModalBody = ({ labels, cookies, colors }: ModalBodyProps) => {
   const modalTabs: TailorTab[] = [
     {
       id: "consent",
@@ -32,13 +18,7 @@ export const ModalBody = ({
     {
       id: "details",
       title: labels.settings.headers.details.title,
-      component: (
-        <ModalDetailsTab
-          cookies={cookies}
-          categories={categories}
-          updateCategories={updateCategories}
-        />
-      ),
+      component: <ModalDetailsTab cookies={cookies} colors={colors} />,
     },
     {
       id: "about",

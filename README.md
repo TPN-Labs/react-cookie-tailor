@@ -122,7 +122,7 @@ You can enable/disable the categories by using the `categories` property. By def
 ```js
 const categories = [
   CookieCategory.MARKETING,
-  CookieCategory.PREFRENCES,
+  CookieCategory.PREFERENCES,
   CookieCategory.STATISTICS,
   CookieCategory.UNCLASSIFIED,
 ];

@@ -87,7 +87,7 @@ export const defaultTailorProps = {
   cookieName: defaultCookieName,
   cookieValue: "true",
   cookiesCategories: [
-    CookieCategory.PREFRENCES,
+    CookieCategory.PREFERENCES,
     CookieCategory.STATISTICS,
     CookieCategory.MARKETING,
   ],

@@ -1,16 +1,16 @@
 export enum CookieCategory {
   MANDATORY = "mandatory",
   MARKETING = "marketing",
-  PREFRENCES = "preferences",
+  PREFERENCES = "preferences",
   STATISTICS = "statistics",
   UNCLASSIFIED = "unclassified",
 }
 
 export interface CookieCategoryDefinition {
   id: number;
-  type: CookieCategory;
-  title: string;
   description: string;
-  status: boolean;
   enabled: boolean;
+  status: boolean;
+  title: string;
+  type: CookieCategory;
 }
