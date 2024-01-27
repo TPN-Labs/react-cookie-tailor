@@ -1,6 +1,6 @@
-import { CookieCategory, TailorLabels } from "../types";
+import { CookieCategory, Label } from "../types";
 
-export const getCategoryTitleAndDescription = (labels: TailorLabels, category: CookieCategory) => {
+export const getCategoryTitleAndDescription = (labels: Label, category: CookieCategory) => {
   switch (category) {
     case CookieCategory.MANDATORY:
       return {

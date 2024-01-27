@@ -1,4 +1,4 @@
-export interface TailorLabels {
+export interface Label {
   cookieCategory: CookieLabels;
   main: MainLabels;
   settings: SettingsLabels;
@@ -21,13 +21,20 @@ interface SettingsAbout {
 interface SettingsHeaders {
   about: SettingsAbout;
   consent: GeneralLabels;
-  details: GeneralLabels;
+  details: DetailsLabels;
 }
 
 interface SettingsLabels {
   title: string;
   description: string;
   headers: SettingsHeaders;
+}
+
+interface DetailsLabels {
+  title: string;
+  description: string;
+  cookieType: string;
+  cookieExpiration: string;
 }
 
 interface CookieLabels {

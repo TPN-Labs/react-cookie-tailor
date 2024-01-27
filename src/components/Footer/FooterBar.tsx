@@ -1,9 +1,9 @@
 import React from "react";
-import { CookieCategoryDefinition, TailorLabels, TailorColors } from "../../types";
+import { CookieCategoryDefinition, Label, TailorColors } from "../../types";
 import { useCategoryContext } from "../../hooks";
 
 interface FooterBarProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
   toggleModal: () => void;
 }

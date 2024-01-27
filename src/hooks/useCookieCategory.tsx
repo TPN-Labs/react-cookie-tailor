@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext, ReactNode, useCallback } from "react";
-import { CookieCategory, CookieCategoryDefinition, TailorLabels } from "../types";
+import { CookieCategory, CookieCategoryDefinition, Label } from "../types";
 import { getCategoryTitleAndDescription } from "../constants";
 
 const CategoryContext = createContext<any>({});
@@ -14,7 +14,7 @@ export const useCategoryContext = () => {
 
 interface CategoryProviderProps {
   children: ReactNode;
-  labels: TailorLabels;
+  labels: Label;
   categories: CookieCategory[];
 }
 

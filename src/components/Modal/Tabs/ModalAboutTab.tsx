@@ -1,8 +1,8 @@
 import React from "react";
-import { TailorLabels, TailorColors } from "../../../types";
+import { Label, TailorColors } from "../../../types";
 
 interface ModalAboutTabProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
 }
 

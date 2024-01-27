@@ -4,11 +4,16 @@ import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
-import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
+import {
+  CookieCategoryDefinition,
+  SAME_SITE_OPTIONS,
+  TailorResponse,
+  VISIBILITY_OPTIONS,
+} from "./types";
 import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
 import { defaultCookiePrefix } from "./constants";
-import { CategoryProvider } from "./hooks/useCookieCategory";
+import { CategoryProvider } from "./hooks";
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultTailorProps;
@@ -36,7 +41,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   /**
    * Set a persistent accept cookie
    */
-  accept = (acceptedByScrolling = false) => {
+  accept = (categories: CookieCategoryDefinition[]) => {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
       ...defaultTailorProps,
       ...this.props,
@@ -44,7 +49,12 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
 
     this.setCookie(cookieName, cookieValue);
 
-    onAccept(acceptedByScrolling ?? false);
+    const response: TailorResponse = {
+      cookieId: this.getDefaultCookieId() || null,
+      cookieCreation: getTailorCookieValue(`${defaultCookiePrefix}created`) || null,
+      categories,
+    };
+    onAccept(response);
 
     if (hideOnAccept) {
       this.setState({ visible: false });
@@ -61,7 +71,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       ...this.props,
     };
     if (acceptOnOverlayClick) {
-      this.accept();
+      this.accept([]);
     }
     onOverlayClick();
   }
@@ -139,7 +149,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       100;
 
     if (percentage > acceptOnScrollPercentage) {
-      this.accept(true);
+      this.accept([]);
     }
   };
 

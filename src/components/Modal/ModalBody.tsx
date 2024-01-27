@@ -1,9 +1,9 @@
 import React from "react";
-import { TailorLabels, TailorColors, TailorCookiesDetails, TailorTab } from "../../types";
+import { Label, TailorColors, TailorCookiesDetails, TailorTab } from "../../types";
 import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
 
 interface ModalBodyProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
   cookies: TailorCookiesDetails;
 }
@@ -18,7 +18,7 @@ export const ModalBody = ({ labels, cookies, colors }: ModalBodyProps) => {
     {
       id: "details",
       title: labels.settings.headers.details.title,
-      component: <ModalDetailsTab cookies={cookies} colors={colors} />,
+      component: <ModalDetailsTab labels={labels} cookies={cookies} colors={colors} />,
     },
     {
       id: "about",

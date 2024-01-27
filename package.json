@@ -1,6 +1,6 @@
 {
   "name": "react-cookie-tailor",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "A small, customizable, and fully compliant cookie consent bar for React.",
   "keywords": [
     "react",

@@ -1,12 +1,12 @@
 import React from "react";
-import { TailorLabels, TailorColors, TailorCookiesDetails } from "../../types";
+import { Label, TailorColors, TailorCookiesDetails } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton } from "../Buttons";
 import { ModalHeader } from "./ModalHeader";
 import { ModalBody } from "./ModalBody";
 
 interface ModalProps {
-  labels: TailorLabels;
+  labels: Label;
   colors: TailorColors;
   showModal: boolean;
   cookies: TailorCookiesDetails;
