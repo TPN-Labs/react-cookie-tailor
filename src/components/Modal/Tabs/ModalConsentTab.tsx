@@ -1,12 +1,19 @@
 import React from "react";
-import { Labels, TailorColors } from "../../../types";
+import { TailorLabels, TailorColors } from "../../../types";
+import { defaultCookiePrefix } from "../../../constants";
+import { getTailorCookieValue } from "../../../utilities";
 
 interface ModalConsentTabProps {
-  labels: Labels;
+  labels: TailorLabels;
   colors: TailorColors;
 }
 
 export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
+  const cookieId = `${defaultCookiePrefix}id`;
+  const createdOn = `${defaultCookiePrefix}created`;
+  const clientCookieId = getTailorCookieValue(cookieId);
+  const clientCookieCreation = getTailorCookieValue(createdOn);
+
   return (
     <div>
       <div className={"rct-mb-2"}>
@@ -39,6 +46,17 @@ export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
           &nbsp;
           {labels.main.descriptionEnd}
         </span>
+      </div>
+      <div
+        className={"rct-border-solid rct-border-2 rct-rounded-lg rct-p-4 rct-mt-3"}
+        style={{ color: colors.black }}
+      >
+        <span className={"rct-font-bold"}>{labels.main.defaultCreation}: </span>
+        <span>{clientCookieCreation}</span>
+        <br />
+        <br />
+        <span className={"rct-font-bold"}>{labels.main.defaultId}: </span>
+        <span>{clientCookieId}</span>
       </div>
     </div>
   );

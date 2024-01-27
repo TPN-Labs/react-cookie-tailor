@@ -5,8 +5,9 @@ import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
 import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
-import { getCookieTailorValue, getLegacyCookieName } from "./utilities";
+import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
+import { defaultCookiePrefix } from "./constants";
 
 export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultTailorProps;
@@ -116,7 +117,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
    */
   getCookieValue() {
     const { cookieName } = this.props;
-    return getCookieTailorValue(cookieName);
+    return getTailorCookieValue(cookieName);
   }
 
   /**
@@ -145,6 +146,22 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     const { acceptOnScroll } = this.props;
     if (acceptOnScroll) {
       window.removeEventListener("scroll", this.handleScroll);
+    }
+  };
+
+  getDefaultCookieId = () => {
+    const cookieName = `${defaultCookiePrefix}id`;
+    return getTailorCookieValue(cookieName);
+  };
+
+  createDefaultCookie = () => {
+    if (!this.getDefaultCookieId()) {
+      const randomId = generateUUIDv4();
+      const cookieName = `${defaultCookiePrefix}id`;
+      const cookieCreation = `${defaultCookiePrefix}created`;
+      const createdDateAsString = new Date().toISOString();
+      this.setCookie(cookieName, randomId);
+      this.setCookie(cookieCreation, createdDateAsString);
     }
   };
 
@@ -197,6 +214,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     }
 
     myStyle.backgroundColor = tailorColors.background;
+    this.createDefaultCookie();
     return (
       <ConditionalWrapper
         condition={overlay}

@@ -530,12 +530,20 @@ body.rct-modal-active {
   border-radius: 0.25rem;
 }
 
+.rct-rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rct-border {
   border-width: 1px;
 }
 
 .rct-border-2 {
   border-width: 2px;
+}
+
+.rct-border-0 {
+  border-width: 0px;
 }
 
 .rct-border-solid {
@@ -604,6 +612,16 @@ body.rct-modal-active {
 .rct-py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.rct-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.rct-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .rct-text-left {

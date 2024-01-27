@@ -1,10 +1,10 @@
 import React from "react";
-import { Labels, TailorColors } from "../../types";
+import { TailorLabels, TailorColors } from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton, PrimaryButton } from "../Buttons";
 
 interface FooterTrailingProps {
-  labels: Labels;
+  labels: TailorLabels;
   colors: TailorColors;
   funcAccept: () => void;
   funcDecline: () => void;

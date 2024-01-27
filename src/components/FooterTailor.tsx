@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   CookieCategory,
   CookieCategoryDefinition,
-  Labels,
+  TailorLabels,
   TailorColors,
   TailorCookiesDetails,
 } from "../types";
@@ -12,7 +12,7 @@ import "../css/out/rct_style.css";
 import { Modal } from "./Modal";
 
 interface FooterTailorProps {
-  labels: Labels;
+  labels: TailorLabels;
   categories: CookieCategory[];
   colors: TailorColors;
   cookies: TailorCookiesDetails;

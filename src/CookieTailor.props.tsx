@@ -1,13 +1,13 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import {
   CookieCategory,
-  Labels,
+  TailorLabels,
   SAME_SITE_OPTIONS,
   TailorColors,
   TailorCookiesDetails,
   VISIBILITY_OPTIONS,
 } from "./types";
-import { defaultColors, defaultCookies, defaultCookieTailorName, defaultLabels } from "./constants";
+import { defaultColors, defaultCookies, defaultLabels, defaultCookieName } from "./constants";
 
 export interface CookieTailorProps {
   ButtonComponent?: any;
@@ -50,7 +50,7 @@ export interface CookieTailorProps {
   flipButtons?: boolean;
   hideOnAccept?: boolean;
   hideOnDecline?: boolean;
-  labels?: Labels;
+  labels?: TailorLabels;
   location?: string;
   primaryColor?: string;
   onAccept?: (acceptedByScrolling: boolean) => void;
@@ -84,7 +84,7 @@ export const defaultTailorProps = {
   contentClasses: "",
   contentStyle: {},
   cookies: defaultCookies,
-  cookieName: defaultCookieTailorName,
+  cookieName: defaultCookieName,
   cookieValue: "true",
   cookiesCategories: [
     CookieCategory.PREFRENCES,

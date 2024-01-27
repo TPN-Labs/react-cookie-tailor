@@ -1,8 +1,8 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels, TailorColors } from "../../types";
+import { CookieCategoryDefinition, TailorLabels, TailorColors } from "../../types";
 
 interface FooterBarProps {
-  labels: Labels;
+  labels: TailorLabels;
   categories: CookieCategoryDefinition[];
   updateCategories: (categories: CookieCategoryDefinition[]) => void;
   colors: TailorColors;

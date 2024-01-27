@@ -1,6 +1,6 @@
-import { Labels } from "../types";
+import { TailorLabels } from "../types";
 
-export const defaultLabels: Labels = {
+export const defaultLabels: TailorLabels = {
   cookieCategory: {
     mandatory: {
       title: "Mandatory",
@@ -38,6 +38,8 @@ export const defaultLabels: Labels = {
     buttonAllow: "Allow all",
     buttonDefault: "Allow default",
     buttonClose: "Close",
+    defaultId: "Client cookie identifier",
+    defaultCreation: "Client cookie creation date",
     descriptionStart:
       "For purposes such as displaying personalized content, we use " +
       "cookies or similar technologies. By clicking Accept, you agree to allow " +

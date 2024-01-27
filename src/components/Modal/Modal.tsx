@@ -1,12 +1,17 @@
 import React from "react";
-import { CookieCategoryDefinition, Labels, TailorColors, TailorCookiesDetails } from "../../types";
+import {
+  CookieCategoryDefinition,
+  TailorLabels,
+  TailorColors,
+  TailorCookiesDetails,
+} from "../../types";
 import "../../css/out/rct_style.css";
 import { OutlineButton } from "../Buttons";
 import { ModalHeader } from "./ModalHeader";
 import { ModalBody } from "./ModalBody";
 
 interface ModalProps {
-  labels: Labels;
+  labels: TailorLabels;
   colors: TailorColors;
   showModal: boolean;
   categories: CookieCategoryDefinition[];
@@ -58,7 +63,7 @@ export const Modal = ({
             cookies={cookies}
           />
 
-          <div className={"rct-flex rct-justify-end rct-py-2 rct-px-6"}>
+          <div className={"rct-flex rct-justify-end rct-py-2 rct-px-2"}>
             <OutlineButton
               colors={colors}
               text={labels.main.buttonClose}

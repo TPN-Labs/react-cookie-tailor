@@ -1,4 +1,4 @@
-export interface Labels {
+export interface TailorLabels {
   cookieCategory: CookieLabels;
   main: MainLabels;
   settings: SettingsLabels;
@@ -42,6 +42,8 @@ interface MainLabels {
   buttonAllow: string;
   buttonDefault: string;
   buttonClose: string;
+  defaultId: string;
+  defaultCreation: string;
   descriptionPrivacyLink: string;
   descriptionPrivacyTitle: string;
   descriptionStart: string;
