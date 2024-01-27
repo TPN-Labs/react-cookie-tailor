@@ -47,7 +47,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "1P_JAR",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "These cookies are used statistics and track conversion rates and Google ad personalisation.",
       expiration: "1 month",
       type: "HTTP",
     },
@@ -55,7 +55,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "ANID",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "These cookies are used to collect anonymous website statistics and track conversion rates.",
       expiration: "1 year",
       type: "HTTP",
     },
@@ -63,7 +63,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "CONSENT",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "Google cookie. Airship uses this cookie to track the user's consent preferences.",
       expiration: "20 years",
       type: "HTTP",
     },
@@ -71,7 +71,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "DV",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "Google cookie. By using this cookie, Google is able to make the ads more attractive to users and more ",
       expiration: "1 day",
       type: "HTTP",
     },
@@ -79,15 +79,14 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "HSID",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "Google cookie. Google uses this cookie to track the user's consent preferences.",
       expiration: "2 years",
       type: "HTTP",
     },
     {
       domain: "Google",
       title: "SAPISID",
-      description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+      description: "Google cookie. Protects user data from unauthorized access.",
       expiration: "2 years",
       type: "HTTP",
     },
@@ -95,7 +94,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "SID",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "Google cookie. Security cookie to protect a user's data from unauthorized access.",
       expiration: "2 years",
       type: "HTTP",
     },
@@ -103,7 +102,7 @@ export const defaultCookies: TailorCookiesDetails = {
       domain: "Google",
       title: "SIDCC",
       description:
-        "Google cookie. These cookies are used to collect website statistics and track conversion rates.",
+        "Google cookie. Cookie is used to protect the user data from unauthorized access.",
       expiration: "3 months",
       type: "HTTP",
     },

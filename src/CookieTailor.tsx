@@ -1,12 +1,11 @@
 import Cookies from "js-cookie";
-import { v4 as uuidv4 } from "uuid";
 import React, { Component, CSSProperties } from "react";
 import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
 import { CookieTailorState, defaultState } from "./CookieTailor.state";
 import { SAME_SITE_OPTIONS, VISIBILITY_OPTIONS } from "./types";
-import { getTailorCookieValue, getLegacyCookieName } from "./utilities";
+import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
 import { defaultCookiePrefix } from "./constants";
 
@@ -157,7 +156,7 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
 
   createDefaultCookie = () => {
     if (!this.getDefaultCookieId()) {
-      const randomId = uuidv4();
+      const randomId = generateUUIDv4();
       const cookieName = `${defaultCookiePrefix}id`;
       const cookieCreation = `${defaultCookiePrefix}created`;
       const createdDateAsString = new Date().toISOString();
