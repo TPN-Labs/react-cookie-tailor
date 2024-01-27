@@ -144,7 +144,7 @@ export const defaultCookies: TailorCookiesDetails = {
       type: "pixel",
     },
     {
-      domain: "tpn-labs.com",
+      domain: "tpn-labs.com4",
       title: "Preferences Cookie 4",
       description: "This is a preferences cookie. 4",
       expiration: "Session",
@@ -153,7 +153,7 @@ export const defaultCookies: TailorCookiesDetails = {
   ],
   statistics: [
     {
-      domain: "tpn-labs.com",
+      domain: "tpn-labs.com5",
       title: "Statistics Cookie",
       description: "This is a statistics cookie. 5",
       expiration: "1 year",
