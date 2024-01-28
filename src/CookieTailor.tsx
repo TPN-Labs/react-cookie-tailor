@@ -1,98 +1,131 @@
 import Cookies from "js-cookie";
-import React, { Component, CSSProperties } from "react";
-import FooterTailor from "./components/FooterTailor";
+import React, { CSSProperties, useEffect, useState } from "react";
+import { FooterTailor } from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
 import { CookieTailorProps, defaultTailorProps } from "./CookieTailor.props";
-import { CookieTailorState, defaultState } from "./CookieTailor.state";
-import {
-  CookieCategoryDefinition,
-  SAME_SITE_OPTIONS,
-  TailorResponse,
-  VISIBILITY_OPTIONS,
-} from "./types";
+import { defaultState } from "./CookieTailor.state";
+import { CookieCategoryDefinition, SAME_SITE_OPTIONS, TailorResponse } from "./types";
 import { getTailorCookieValue, getLegacyCookieName, generateUUIDv4 } from "./utilities";
 import "./css/out/rct_style.css";
-import { defaultCookiePrefix } from "./constants";
-import { CategoryProvider } from "./hooks";
+import {
+  defaultCookiePrefix,
+  getCategoryDefinition,
+  getCategoryStorage,
+  setCategoryStorage,
+} from "./constants";
 
-export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
-  public static defaultProps = defaultTailorProps;
+export const CookieTailor = (props: CookieTailorProps) => {
+  const [visible, setVisible] = useState<boolean>(defaultState.visible);
+  const state = defaultState;
 
-  state: CookieTailorState = defaultState;
+  const {
+    colors,
+    cookieName,
+    containerClasses,
+    contentClasses,
+    contentStyle,
+    cookies,
+    customContainerAttributes,
+    customContentAttributes,
+    disableStyles,
+    labels,
+    overlay,
+    overlayClasses,
+    overlayStyle,
+    style,
+  } = props;
 
-  componentDidMount() {
-    const { debug } = this.props;
+  const tailorCookies = cookies || defaultTailorProps.cookies;
+  const tailorColors = colors || defaultTailorProps.colors;
+  const tailorLabels = labels || defaultTailorProps.labels;
+
+  const runComponentMount = () => {
+    const { debug } = props;
 
     // if cookie undefined or debug
-    if (this.getCookieValue() === undefined || debug) {
-      this.setState({ visible: true });
+    if (getCookieValue() === undefined || debug) {
+      setVisible(true);
       // if acceptOnScroll is set to true and (cookie is undefined or debug is set to true), add a listener.
-      if (this.props.acceptOnScroll) {
-        window.addEventListener("scroll", this.handleScroll, { passive: true });
+      if (props.acceptOnScroll) {
+        window.addEventListener("scroll", handleScroll, { passive: true });
       }
     }
-  }
+  };
 
-  componentWillUnmount() {
-    // remove listener if still set
-    this.removeScrollListener();
-  }
+  const runComponentUnmount = () => {
+    removeScrollListener();
+  };
+
+  const removeScrollListener = () => {
+    const { acceptOnScroll } = props;
+    if (acceptOnScroll) {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  };
+
+  useEffect(() => {
+    runComponentMount();
+
+    return () => {
+      runComponentUnmount();
+    };
+  }, []);
 
   /**
    * Set a persistent accept cookie
    */
-  accept = (categories: CookieCategoryDefinition[]) => {
+  const accept = (categories: CookieCategoryDefinition[]) => {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
       ...defaultTailorProps,
-      ...this.props,
+      ...props,
     };
 
-    this.setCookie(cookieName, cookieValue);
+    setCookie(cookieName, cookieValue);
 
     const response: TailorResponse = {
-      cookieId: this.getDefaultCookieId() || null,
+      cookieId: getDefaultCookieId() || null,
       cookieCreation: getTailorCookieValue(`${defaultCookiePrefix}created`) || null,
       categories,
     };
     onAccept(response);
 
     if (hideOnAccept) {
-      this.setState({ visible: false });
-      this.removeScrollListener();
+      setVisible(false);
+      removeScrollListener();
     }
   };
 
   /**
    * Handle a click on the overlay
    */
-  overlayClick() {
+  const overlayClick = () => {
     const { acceptOnOverlayClick, onOverlayClick } = {
       ...defaultTailorProps,
-      ...this.props,
+      ...props,
     };
     if (acceptOnOverlayClick) {
-      this.accept([]);
+      accept([]);
     }
     onOverlayClick();
-  }
+  };
 
   /**
    * Set a persistent decline cookie
    */
-  decline = () => {
+  const decline = () => {
     const { cookieName, declineCookieValue, hideOnDecline, onDecline, setDeclineCookie } = {
       ...defaultTailorProps,
-      ...this.props,
+      ...props,
     };
 
     if (setDeclineCookie) {
-      this.setCookie(cookieName, declineCookieValue);
+      setCookie(cookieName, declineCookieValue);
     }
 
     onDecline();
 
     if (hideOnDecline) {
-      this.setState({ visible: false });
+      setVisible(false);
     }
   };
 
@@ -101,9 +134,9 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
    * Sets two cookies to handle incompatible browsers, more details:
    * https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
    */
-  setCookie(cookieName: string, cookieValue: string | object) {
-    const { extraCookieOptions, expires, sameSite } = this.props;
-    let { cookieSecurity } = this.props;
+  const setCookie = (cookieName: string, cookieValue: string | object) => {
+    const { extraCookieOptions, expires, sameSite } = props;
+    let { cookieSecurity } = props;
 
     if (cookieSecurity === undefined) {
       cookieSecurity = window.location ? window.location.protocol === "https:" : true;
@@ -119,23 +152,22 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
 
     // set the regular cookie
     Cookies.set(cookieName, cookieValue, cookieOptions);
-  }
+  };
 
   /**
    * Returns the value of the consent cookie
    * Retrieves the regular value first and if not found the legacy one according
    * to: https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
    */
-  getCookieValue() {
-    const { cookieName } = this.props;
+  const getCookieValue = () => {
     return getTailorCookieValue(cookieName);
-  }
+  };
 
   /**
    * checks whether scroll has exceeded set amount and fire accept if so.
    */
-  handleScroll = () => {
-    const { acceptOnScrollPercentage } = { ...defaultTailorProps, ...this.props };
+  const handleScroll = () => {
+    const { acceptOnScrollPercentage } = { ...defaultTailorProps, ...props };
 
     // (top / height) - height * 100
     const rootNode = document.documentElement;
@@ -149,120 +181,92 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
       100;
 
     if (percentage > acceptOnScrollPercentage) {
-      this.accept([]);
+      accept([]);
     }
   };
 
-  removeScrollListener = () => {
-    const { acceptOnScroll } = this.props;
-    if (acceptOnScroll) {
-      window.removeEventListener("scroll", this.handleScroll);
-    }
-  };
-
-  getDefaultCookieId = () => {
+  const getDefaultCookieId = () => {
     const cookieName = `${defaultCookiePrefix}id`;
     return getTailorCookieValue(cookieName);
   };
 
-  createDefaultCookie = () => {
-    if (!this.getDefaultCookieId()) {
+  const createDefaultCookie = () => {
+    if (!getDefaultCookieId()) {
       const randomId = generateUUIDv4();
       const cookieName = `${defaultCookiePrefix}id`;
       const cookieCreation = `${defaultCookiePrefix}created`;
       const createdDateAsString = new Date().toISOString();
-      this.setCookie(cookieName, randomId);
-      this.setCookie(cookieCreation, createdDateAsString);
+      setCookie(cookieName, randomId);
+      setCookie(cookieCreation, createdDateAsString);
     }
   };
 
-  render() {
-    // If the bar shouldn't be visible don't render anything.
-    switch (this.props.visible) {
-      case VISIBILITY_OPTIONS.HIDDEN:
-        return null;
-      case VISIBILITY_OPTIONS.BY_COOKIE_VALUE:
-        if (!this.state.visible) {
-          return null;
-        }
-        break;
-      default:
-        break;
+  const createDefaultCategories = () => {
+    const { cookiesCategories, labels } = props;
+    const storageCategories = getCategoryStorage();
+    if (!storageCategories) {
+      const categories = cookiesCategories || defaultTailorProps.cookiesCategories;
+      const tailorLabels = labels || defaultTailorProps.labels;
+      const categoriesDefinition = categories.map((category, idx) => {
+        return getCategoryDefinition(tailorLabels, idx, category);
+      });
+      setCategoryStorage(categoriesDefinition);
     }
+  };
 
-    const {
-      colors,
-      containerClasses,
-      contentClasses,
-      contentStyle,
-      cookies,
-      cookiesCategories,
-      customContainerAttributes,
-      customContentAttributes,
-      disableStyles,
-      labels,
-      overlay,
-      overlayClasses,
-      overlayStyle,
-      style,
-    } = this.props;
+  let myStyle: CSSProperties;
+  let myContentStyle: CSSProperties;
+  let myOverlayStyle: CSSProperties = {};
 
-    const tailorCookies = cookies || defaultTailorProps.cookies;
-    const tailorColors = colors || defaultTailorProps.colors;
-    const tailorCategories = cookiesCategories || defaultTailorProps.cookiesCategories;
-    const tailorLabels = labels || defaultTailorProps.labels;
+  if (disableStyles) {
+    // if styles are disabled use the provided styles (or none)
+    myStyle = Object.assign({}, style);
+    myContentStyle = Object.assign({}, contentStyle);
+    myOverlayStyle = Object.assign({}, overlayStyle);
+  } else {
+    // if styles aren't disabled merge them with the styles that are provided (or use default styles)
+    myStyle = Object.assign({}, { ...state.style, ...style });
+    myContentStyle = Object.assign({}, { ...state.contentStyle, ...contentStyle });
+    myOverlayStyle = Object.assign({}, { ...state.overlayStyle, ...overlayStyle });
+  }
 
-    let myStyle: CSSProperties;
-    let myContentStyle: CSSProperties;
-    let myOverlayStyle: CSSProperties = {};
+  myStyle.backgroundColor = tailorColors.background;
+  createDefaultCookie();
+  createDefaultCategories();
 
-    if (disableStyles) {
-      // if styles are disabled use the provided styles (or none)
-      myStyle = Object.assign({}, style);
-      myContentStyle = Object.assign({}, contentStyle);
-      myOverlayStyle = Object.assign({}, overlayStyle);
-    } else {
-      // if styles aren't disabled merge them with the styles that are provided (or use default styles)
-      myStyle = Object.assign({}, { ...this.state.style, ...style });
-      myContentStyle = Object.assign({}, { ...this.state.contentStyle, ...contentStyle });
-      myOverlayStyle = Object.assign({}, { ...this.state.overlayStyle, ...overlayStyle });
-    }
-
-    myStyle.backgroundColor = tailorColors.background;
-    this.createDefaultCookie();
-    return (
-      <ConditionalWrapper
-        condition={overlay}
-        wrapper={(children) => (
+  return (
+    <ConditionalWrapper
+      condition={overlay}
+      wrapper={(children) => (
+        <div
+          style={myOverlayStyle}
+          className={overlayClasses}
+          onClick={() => {
+            overlayClick();
+          }}
+        >
+          {children}
+        </div>
+      )}
+    >
+      <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
+        <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
           <div
-            style={myOverlayStyle}
-            className={overlayClasses}
-            onClick={() => {
-              this.overlayClick();
-            }}
+            className={"rct-container rct-place-self-center rct-p-4"}
+            style={{ display: visible ? "block" : "none" }}
           >
-            {children}
-          </div>
-        )}
-      >
-        <div className={`${containerClasses}`} style={myStyle} {...customContainerAttributes}>
-          <div style={myContentStyle} className={contentClasses} {...customContentAttributes}>
-            <div className={"rct-container rct-place-self-center rct-p-4"}>
-              <CategoryProvider labels={tailorLabels} categories={tailorCategories}>
-                <FooterTailor
-                  labels={tailorLabels}
-                  cookies={tailorCookies}
-                  colors={tailorColors}
-                  funcAccept={this.accept}
-                  funcDecline={this.decline}
-                />
-              </CategoryProvider>
-            </div>
+            <FooterTailor
+              labels={tailorLabels}
+              cookies={tailorCookies}
+              colors={tailorColors}
+              funcAccept={accept}
+              funcDecline={decline}
+            />
           </div>
         </div>
-      </ConditionalWrapper>
-    );
-  }
-}
+      </div>
+    </ConditionalWrapper>
+  );
+};
 
 export default CookieTailor;

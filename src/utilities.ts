@@ -44,6 +44,11 @@ export const getLegacyCookieName = (name: string) => {
   return `${name}-legacy`;
 };
 
+/**
+ * This function will group an array of objects by a key
+ * @param list - array of objects
+ * @param groupKey - key to group by
+ */
 export const groupBy = (list: any[], groupKey: any) => {
   const map = new Map();
   list.forEach((item) => {

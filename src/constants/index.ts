@@ -1,3 +1,4 @@
+export * from "./categoryUtilities";
 export * from "./defaultColors";
 export * from "./defaultCookieName";
 export * from "./defaultCookies";

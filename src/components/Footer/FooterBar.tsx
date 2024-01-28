@@ -1,6 +1,6 @@
 import React from "react";
 import { CookieCategoryDefinition, Label, TailorColors } from "../../types";
-import { useCategoryContext } from "../../hooks";
+import { getCategoryStorage, setCategory } from "../../constants";
 
 interface FooterBarProps {
   labels: Label;
@@ -9,10 +9,11 @@ interface FooterBarProps {
 }
 
 export const FooterBar = ({ labels, colors, toggleModal }: FooterBarProps) => {
-  const { enabledCategories, modifyCategory } = useCategoryContext();
+  const enabledCategories = getCategoryStorage();
+
   const switchCheckbox = (category: CookieCategoryDefinition) => {
     category.status = !category.status;
-    modifyCategory(category);
+    setCategory(category);
   };
 
   return (

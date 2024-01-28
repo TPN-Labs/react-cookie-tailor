@@ -6,7 +6,7 @@ import {
   Label,
 } from "../../../types";
 import { ModalCookieContainer } from "./ModalCookieContainer";
-import { useCategoryContext } from "../../../hooks";
+import { getCategoryStorage } from "../../../constants";
 
 interface ModalDetailsTabProps {
   colors: TailorColors;
@@ -15,7 +15,7 @@ interface ModalDetailsTabProps {
 }
 
 export const ModalDetailsTab = ({ colors, cookies, labels }: ModalDetailsTabProps) => {
-  const { enabledCategories } = useCategoryContext();
+  const enabledCategories = getCategoryStorage();
 
   return (
     <div>
