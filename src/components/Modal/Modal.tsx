@@ -1,11 +1,12 @@
-import React from "react";
-import { Label, TailorColors, TailorCookiesDetails } from "../../types";
+import { Label } from "../../types/label";
+import { TailorColors } from "../../types/color";
+import { TailorCookiesDetails } from "../../types/cookie";
 import "../../css/out/rct_style.css";
-import { OutlineButton } from "../Buttons";
-import { ModalHeader } from "./ModalHeader";
-import { ModalBody } from "./ModalBody";
+import ModalHeader from "./ModalHeader";
+import ModalBody from "./ModalBody";
+import OutlineButton from "../Buttons/OutlineButton";
 
-interface ModalProps {
+type ModalProps = {
   labels: Label;
   colors: TailorColors;
   showModal: boolean;
@@ -13,7 +14,7 @@ interface ModalProps {
   toggleModal: () => void;
 }
 
-export const Modal = ({ labels, showModal, colors, toggleModal, cookies }: ModalProps) => {
+export default function Modal({ labels, showModal, colors, toggleModal, cookies }: ModalProps) {
   return (
     <div
       className={`rct-modal ${

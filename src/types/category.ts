@@ -6,7 +6,7 @@ export enum CookieCategory {
   UNCLASSIFIED = "unclassified",
 }
 
-export interface CookieCategoryDefinition {
+export type CookieCategoryDefinition = {
   id: number;
   description: string;
   enabled: boolean;

@@ -2,7 +2,7 @@
 .DS_Store
 .cache
 .idea
-dist
+lib
 node_modules
 package-lock.json
 storybook-static

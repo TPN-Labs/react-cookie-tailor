@@ -1,4 +1,5 @@
-import { CookieCategory, TailorCookiesDetails } from "../types";
+import { TailorCookiesDetails } from "../types/cookie";
+import { CookieCategory } from "../types/category";
 
 export const defaultCookies: TailorCookiesDetails = {
   categories: [

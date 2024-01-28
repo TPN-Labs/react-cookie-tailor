@@ -1,23 +1,23 @@
-import React from "react";
-import { CookieCategoryDefinition, Label, TailorColors } from "../../types";
+import { Label } from "../../types/label";
+import { TailorColors } from "../../types/color";
+import { CookieCategoryDefinition } from "../../types/category";
+import PrimaryButton from "../Buttons/PrimaryButton";
+import OutlineButton from "../Buttons/OutlineButton";
 import "../../css/out/rct_style.css";
-import { OutlineButton, PrimaryButton } from "../Buttons";
-import { useCategoryContext } from "../../hooks";
 
-interface FooterTrailingProps {
+type FooterTrailingProps = {
   labels: Label;
   colors: TailorColors;
   funcAccept: (categories: CookieCategoryDefinition[]) => void;
   funcDecline: () => void;
 }
 
-export const FooterTrailing = ({
+export default function FooterTrailing({
   labels,
   funcAccept,
   funcDecline,
   colors,
-}: FooterTrailingProps) => {
-  const { enabledCategories } = useCategoryContext();
+}: FooterTrailingProps) {
   const buttonWidth = "240px";
 
   return (
@@ -28,7 +28,7 @@ export const FooterTrailing = ({
           text={labels.main.buttonAllow}
           width={buttonWidth}
           clickFunction={() => {
-            funcAccept(enabledCategories);
+            // funcAccept(enabledCategories);
           }}
           marginY
           paddingY

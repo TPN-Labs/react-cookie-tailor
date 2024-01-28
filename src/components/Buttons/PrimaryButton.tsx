@@ -1,6 +1,5 @@
-import React from "react";
 import "../../css/out/rct_style.css";
-import { TailorColors } from "../../types";
+import { TailorColors } from "../../types/color";
 
 interface PrimaryButtonProps {
   colors: TailorColors;
@@ -11,14 +10,14 @@ interface PrimaryButtonProps {
   clickFunction: () => void;
 }
 
-export const PrimaryButton = ({
+export default function PrimaryButton({
   colors,
   text,
   paddingY,
   marginY,
   width = "200px",
   clickFunction,
-}: PrimaryButtonProps) => {
+}: PrimaryButtonProps) {
   return (
     <button
       className={

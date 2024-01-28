@@ -1,10 +1,10 @@
-export interface Label {
+export type Label = {
   cookieCategory: CookieLabels;
   main: MainLabels;
   settings: SettingsLabels;
 }
 
-interface SettingsAbout {
+type SettingsAbout = {
   title: string;
   privacyPolicyLink: string;
   privacyPolicyTitle: string;
@@ -18,26 +18,26 @@ interface SettingsAbout {
   description6: string;
 }
 
-interface SettingsHeaders {
+type SettingsHeaders = {
   about: SettingsAbout;
   consent: GeneralLabels;
   details: DetailsLabels;
 }
 
-interface SettingsLabels {
+type SettingsLabels = {
   title: string;
   description: string;
   headers: SettingsHeaders;
 }
 
-interface DetailsLabels {
+type DetailsLabels = {
   title: string;
   description: string;
   cookieType: string;
   cookieExpiration: string;
 }
 
-interface CookieLabels {
+type CookieLabels = {
   mandatory: GeneralLabels;
   preferences: GeneralLabels;
   statistics: GeneralLabels;
@@ -45,7 +45,7 @@ interface CookieLabels {
   unclassified: GeneralLabels;
 }
 
-interface MainLabels {
+type MainLabels = {
   buttonAllow: string;
   buttonDefault: string;
   buttonClose: string;
@@ -59,7 +59,7 @@ interface MainLabels {
   title: string;
 }
 
-interface GeneralLabels {
+type GeneralLabels = {
   description: string;
   title: string;
 }

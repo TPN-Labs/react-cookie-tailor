@@ -1,14 +1,19 @@
-import React from "react";
-import { Label, TailorColors, TailorCookiesDetails, TailorTab } from "../../types";
-import { ModalAboutTab, ModalConsentTab, ModalDetailsTab } from "./Tabs";
+import { useState } from "react";
+import { Label } from "../../types/label";
+import { TailorColors } from "../../types/color";
+import { TailorCookiesDetails } from "../../types/cookie";
+import { TailorTab } from "../../types/tab";
+import ModalDetailsTab from "./Tabs/ModalDetailsTab";
+import ModalAboutTab from "./Tabs/ModalAboutTab";
+import ModalConsentTab from "./Tabs/ModalConsentTab";
 
-interface ModalBodyProps {
+type ModalBodyProps = {
   labels: Label;
   colors: TailorColors;
   cookies: TailorCookiesDetails;
 }
 
-export const ModalBody = ({ labels, cookies, colors }: ModalBodyProps) => {
+export default function ModalBody({ labels, cookies, colors }: ModalBodyProps) {
   const modalTabs: TailorTab[] = [
     {
       id: "consent",
@@ -27,8 +32,8 @@ export const ModalBody = ({ labels, cookies, colors }: ModalBodyProps) => {
     },
   ];
 
-  const [activeTab, setActiveTab] = React.useState<TailorTab>(modalTabs[1]);
-  const [activeTabKey, setActiveTabKey] = React.useState<string>(modalTabs[1].id);
+  const [activeTab, setActiveTab] = useState<TailorTab>(modalTabs[1]);
+  const [activeTabKey, setActiveTabKey] = useState<string>(modalTabs[1].id);
 
   const setActiveTabById = (tab: TailorTab) => {
     setActiveTab(tab);

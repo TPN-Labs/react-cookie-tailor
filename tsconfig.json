@@ -1,25 +1,27 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src", "types"],
+  "include": ["src"],
+  "exclude": ["node_modules", "lib"],
   "compilerOptions": {
-    "declaration": true, // output .d.ts declaration files for consumers
-    "esModuleInterop": true, // interop between ESM and CJS modules. Recommended by TS
-    "forceConsistentCasingInFileNames": true, // error out if import and file system have a casing mismatch. Recommended by TS
-    "importHelpers": true,
-    "jsx": "react", // transpile JSX to React.createElement
-    "lib": ["dom", "esnext"],
-    "outDir": "./dist/esm", // output dir for ESM build
-    "module": "ESNext",
-    "moduleResolution": "node", // use Node's module resolution algorithm, instead of the legacy TS one
-    "noEmit": true, // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true, // linter checks for common issues
-    "noUnusedLocals": true, // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
-    "noUnusedParameters": true,
-    "rootDir": "./src", // match output dir to input dir. e.g. dist/index instead of dist/src/index
-    "skipLibCheck": true, // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
-    "sourceMap": true, // output .js.map sourcemap files for consumers
-    "strict": true, // stricter type-checking for stronger correctness. Recommended by TS
-    "target": "ES2020",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "./lib/",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
   }
 }

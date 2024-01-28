@@ -1,12 +1,12 @@
-import React from "react";
-import { Label, TailorColors } from "../../../types";
+import { Label } from "../../../types/label";
+import { TailorColors } from "../../../types/color";
 
 interface ModalAboutTabProps {
   labels: Label;
   colors: TailorColors;
 }
 
-export const ModalAboutTab = ({ labels, colors }: ModalAboutTabProps) => {
+export default function ModalAboutTab({ labels, colors }: ModalAboutTabProps) {
   return (
     <div
       className={"rct-font-sans rct-tracking-wide rct-font-light"}

@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+/*import Cookies from "js-cookie";
 import React, { Component, CSSProperties } from "react";
 import FooterTailor from "./components/FooterTailor";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
@@ -15,7 +15,7 @@ import "./css/out/rct_style.css";
 import { defaultCookiePrefix } from "./constants";
 import { CategoryProvider } from "./hooks";
 
-export class CookieTailor extends Component<CookieTailorProps, CookieTailorState> {
+export class CookieTailorOld extends Component<CookieTailorProps, CookieTailorState> {
   public static defaultProps = defaultTailorProps;
 
   state: CookieTailorState = defaultState;
@@ -38,9 +38,6 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     this.removeScrollListener();
   }
 
-  /**
-   * Set a persistent accept cookie
-   */
   accept = (categories: CookieCategoryDefinition[]) => {
     const { cookieName, cookieValue, hideOnAccept, onAccept } = {
       ...defaultTailorProps,
@@ -62,9 +59,6 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     }
   };
 
-  /**
-   * Handle a click on the overlay
-   */
   overlayClick() {
     const { acceptOnOverlayClick, onOverlayClick } = {
       ...defaultTailorProps,
@@ -76,9 +70,6 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     onOverlayClick();
   }
 
-  /**
-   * Set a persistent decline cookie
-   */
   decline = () => {
     const { cookieName, declineCookieValue, hideOnDecline, onDecline, setDeclineCookie } = {
       ...defaultTailorProps,
@@ -96,11 +87,6 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     }
   };
 
-  /**
-   * Function to set the consent cookie based on the provided variables
-   * Sets two cookies to handle incompatible browsers, more details:
-   * https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
-   */
   setCookie(cookieName: string, cookieValue: string | object) {
     const { extraCookieOptions, expires, sameSite } = this.props;
     let { cookieSecurity } = this.props;
@@ -121,19 +107,11 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
     Cookies.set(cookieName, cookieValue, cookieOptions);
   }
 
-  /**
-   * Returns the value of the consent cookie
-   * Retrieves the regular value first and if not found the legacy one according
-   * to: https://web.dev/samesite-cookie-recipes/#handling-incompatible-clients
-   */
   getCookieValue() {
     const { cookieName } = this.props;
     return getTailorCookieValue(cookieName);
   }
 
-  /**
-   * checks whether scroll has exceeded set amount and fire accept if so.
-   */
   handleScroll = () => {
     const { acceptOnScrollPercentage } = { ...defaultTailorProps, ...this.props };
 
@@ -265,4 +243,5 @@ export class CookieTailor extends Component<CookieTailorProps, CookieTailorState
   }
 }
 
-export default CookieTailor;
+export default CookieTailorOld;
+*/

@@ -1,4 +1,5 @@
-import { CookieCategory, Label } from "../types";
+import { Label } from "../types/label";
+import { CookieCategory } from "../types/category";
 
 export const getCategoryTitleAndDescription = (labels: Label, category: CookieCategory) => {
   switch (category) {

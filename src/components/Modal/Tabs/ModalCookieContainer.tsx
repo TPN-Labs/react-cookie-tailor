@@ -1,20 +1,22 @@
-import React from "react";
-import { CookieCategoryDefinition, TailorColors, TailorCookie, Label } from "../../../types";
 import { groupBy } from "../../../utilities";
+import { TailorColors } from "../../../types/color";
+import { TailorCookie } from "../../../types/cookie";
+import { Label } from "../../../types/label";
+import { CookieCategoryDefinition } from "../../../types/category";
 
-interface ModalCookieContainerProps {
+type ModalCookieContainerProps = {
   colors: TailorColors;
   cookies: TailorCookie[];
   labels: Label;
   type: CookieCategoryDefinition;
 }
 
-export const ModalCookieContainer = ({
+export default function ModalCookieContainer({
   colors,
   cookies,
   labels,
   type,
-}: ModalCookieContainerProps) => {
+}: ModalCookieContainerProps) {
   const cookiesGroupedByDomain = groupBy(cookies, "domain");
   const domainKeys = [...cookiesGroupedByDomain.keys()];
 

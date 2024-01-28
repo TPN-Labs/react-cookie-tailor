@@ -1,6 +1,6 @@
 {
   "name": "react-cookie-tailor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A small, customizable, and fully compliant cookie consent bar for React.",
   "keywords": [
     "react",
@@ -22,25 +22,20 @@
     "name": "TPN Labs",
     "email": "office@tpn-labs.com"
   },
-  "main": "dist/index.js",
-  "module": "dist/react-cookie-tailor.esm.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "tsdx build",
     "build-storybook": "build-storybook",
+    "build": "webpack --config webpack.config.prod.js",
+    "build-dev": "webpack --config webpack.config.dev.js",
+    "build-serve": "webpack serve --config webpack.config.dev.js",
     "build-css": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/out/rct_style.css",
     "install-husky": "npx husky install",
-    "lint": "tsdx lint",
     "major": "npm --no-git-tag-version version major",
     "minor": "npm --no-git-tag-version version minor",
     "organize": "npx format-package -w && npx sort-package-json",
     "patch": "npm --no-git-tag-version version patch",
-    "prepare": "tsdx build",
     "prettier": "prettier 'src/**/*.{js*,ts*,htm*,md,scss}' --write",
     "publish": "npx np",
     "release": "npm run build && git add -A && git tag $npm_package_version && git commit -m \"release $npm_package_version\" && git push && git push --tags && npm publish",
@@ -50,7 +45,6 @@
     "size": "size-limit",
     "start": "tsdx watch",
     "storybook": "start-storybook -p 6006",
-    "test": "tsdx test --passWithNoTests",
     "preversion": "grep \"\\[$npm_package_version\\]\" CHANGELOG.md > /dev/null || ( echo 'You need to add an entry in CHANGELOG.md for this version.' && false )"
   },
   "lint-staged": {
@@ -60,13 +54,15 @@
   },
   "prettier": "@mastermindzh/prettier-config",
   "dependencies": {
-    "js-cookie": "^2.2.1"
+    "js-cookie": "^2.2.1",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mastermindzh/prettier-config": "^1.0.0",
-    "@mui/material": "^5.9.2",
     "@size-limit/esbuild": "^11.0.0",
     "@size-limit/esbuild-why": "^11.0.0",
     "@size-limit/preset-small-lib": "^11.0.0",
@@ -74,38 +70,43 @@
     "@storybook/addons": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@types/js-cookie": "^2.2.6",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
     "@types/uuid": "^9.0.8",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.9.1",
     "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "postcss": "^8.4.33",
     "postcss-import": "^16.0.0",
-    "prettier": "^2.6.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
+    "postcss-loader": "^8.0.0",
+    "prettier": "^3.2.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rollup-plugin-postcss": "^4.0.2",
     "size-limit": "^11.0.0",
-    "tailwindcss": "^3.4.1",
-    "tsdx": "^0.14.1",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
     "tslib": "^2.4.0",
-    "typescript": "^3.9.10"
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "engines": {
     "node": ">=10"
   },
   "size-limit": [
     {
-      "path": "dist/react-cookie-tailor.cjs.production.min.js",
+      "path": "lib/react-cookie-tailor.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-cookie-tailor.esm.js",
+      "path": "lib/react-cookie-tailor.esm.js",
       "limit": "10 KB"
     }
   ]

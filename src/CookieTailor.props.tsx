@@ -1,16 +1,16 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import {
-  CookieCategory,
-  Label,
-  SAME_SITE_OPTIONS,
-  TailorColors,
-  TailorCookiesDetails,
-  TailorResponse,
-  VISIBILITY_OPTIONS,
-} from "./types";
-import { defaultColors, defaultCookies, defaultLabels, defaultCookieName } from "./constants";
+import { FunctionComponent, ReactNode } from "react";
+import { TailorColors } from "./types/color";
+import { TailorCookiesDetails } from "./types/cookie";
+import { Label } from "./types/label";
+import { TailorResponse } from "./types/response";
+import { VISIBILITY_OPTIONS } from "./types/visibilityOptions";
+import { CookieCategory } from "./types/category";
+import { defaultColors } from "./constants/defaultColors";
+import { defaultCookies } from "./constants/defaultCookies";
+import { defaultCookieName } from "./constants/defaultCookieName";
+import { defaultLabels } from "./constants/defaultLabels";
 
-export interface CookieTailorProps {
+export type CookieTailorProps = {
   ButtonComponent?: any;
   acceptOnOverlayClick?: boolean;
   acceptOnScroll?: boolean;
@@ -112,7 +112,6 @@ export const defaultTailorProps = {
   overlay: false,
   overlayClasses: "",
   overlayStyle: {},
-  sameSite: SAME_SITE_OPTIONS.LAX,
   setDeclineCookie: true,
   style: {},
   visible: VISIBILITY_OPTIONS.BY_COOKIE_VALUE,

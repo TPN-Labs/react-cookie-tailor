@@ -1,13 +1,13 @@
-import React from "react";
-import { Label, TailorColors } from "../../types";
+import { Label } from "../../types/label";
+import { TailorColors } from "../../types/color";
 
-interface ModalHeaderProps {
+type ModalHeaderProps = {
   labels: Label;
   colors: TailorColors;
   toggleModal: () => void;
 }
 
-export const ModalHeader = ({ labels, toggleModal, colors }: ModalHeaderProps) => {
+export default function ModalHeader({ labels, toggleModal, colors }: ModalHeaderProps) {
   return (
     <div
       className={"rct-flex rct-justify-between rct-items-center"}

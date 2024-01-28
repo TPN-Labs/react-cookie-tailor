@@ -1,4 +1,4 @@
-import { TailorColors } from "../types";
+import { TailorColors } from "../types/color";
 
 export const defaultColors: TailorColors = {
   primary: "#2B567D",

@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { defaultCookieName } from "./constants";
+import { defaultCookieName } from "./constants/defaultCookieName";
 
 /**
  * Returns a UUIDv4

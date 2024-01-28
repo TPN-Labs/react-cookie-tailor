@@ -1,8 +1,7 @@
-import React from "react";
 import "../../css/out/rct_style.css";
-import { TailorColors } from "../../types";
+import { TailorColors } from "../../types/color";
 
-interface OutlineButtonProps {
+type OutlineButtonProps = {
   colors: TailorColors;
   text: string;
   width?: string;
@@ -11,14 +10,14 @@ interface OutlineButtonProps {
   clickFunction: () => void;
 }
 
-export const OutlineButton = ({
+export default function OutlineButton({
   colors,
   text,
   paddingY,
   marginY,
   width = "200px",
   clickFunction,
-}: OutlineButtonProps) => {
+}: OutlineButtonProps) {
   return (
     <button
       className={

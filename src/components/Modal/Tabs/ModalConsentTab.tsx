@@ -1,14 +1,14 @@
-import React from "react";
-import { Label, TailorColors } from "../../../types";
-import { defaultCookiePrefix } from "../../../constants";
 import { getTailorCookieValue } from "../../../utilities";
+import { Label } from "../../../types/label";
+import { TailorColors } from "../../../types/color";
+import { defaultCookiePrefix } from "../../../constants/defaultCookieName";
 
-interface ModalConsentTabProps {
+type ModalConsentTabProps = {
   labels: Label;
   colors: TailorColors;
 }
 
-export const ModalConsentTab = ({ labels, colors }: ModalConsentTabProps) => {
+export default function ModalConsentTab({ labels, colors }: ModalConsentTabProps) {
   const cookieId = `${defaultCookiePrefix}id`;
   const createdOn = `${defaultCookiePrefix}created`;
   const clientCookieId = getTailorCookieValue(cookieId);

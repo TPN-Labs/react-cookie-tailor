@@ -1,25 +1,19 @@
-import React from "react";
-import {
-  CookieCategoryDefinition,
-  TailorColors,
-  TailorCookiesDetails,
-  Label,
-} from "../../../types";
-import { ModalCookieContainer } from "./ModalCookieContainer";
-import { useCategoryContext } from "../../../hooks";
+import { TailorColors } from "../../../types/color";
+import { TailorCookiesDetails } from "../../../types/cookie";
+import { Label } from "../../../types/label";
+import { CookieCategoryDefinition } from "../../../types/category";
+import ModalCookieContainer from "./ModalCookieContainer";
 
-interface ModalDetailsTabProps {
+type ModalDetailsTabProps = {
   colors: TailorColors;
   cookies: TailorCookiesDetails;
   labels: Label;
 }
 
-export const ModalDetailsTab = ({ colors, cookies, labels }: ModalDetailsTabProps) => {
-  const { enabledCategories } = useCategoryContext();
-
+export default function ModalDetailsTab({ colors, cookies, labels }: ModalDetailsTabProps) {
   return (
     <div>
-      {enabledCategories.map((category: CookieCategoryDefinition) => {
+      {[].map((category: CookieCategoryDefinition) => {
         return (
           <div key={category.id}>
             <ModalCookieContainer

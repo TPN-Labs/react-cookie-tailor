@@ -1,6 +1,6 @@
 import { CookieCategory } from "./category";
 
-export interface TailorCookie {
+export type TailorCookie =  {
   category: CookieCategory;
   description: string;
   domain: string;
@@ -9,7 +9,7 @@ export interface TailorCookie {
   type: string;
 }
 
-export interface TailorCookiesDetails {
+export type TailorCookiesDetails = {
   categories: CookieCategory[];
   data: TailorCookie[];
 }

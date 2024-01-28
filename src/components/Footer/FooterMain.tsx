@@ -1,12 +1,12 @@
-import React from "react";
-import { Label, TailorColors } from "../../types";
+import { Label } from "../../types/label";
+import { TailorColors } from "../../types/color";
 
-interface FooterMainProps {
+type FooterMainProps = {
   labels: Label;
   colors: TailorColors;
 }
 
-export const FooterMain = ({ labels, colors }: FooterMainProps) => {
+export default function FooterMain({ labels, colors }: FooterMainProps) {
   return (
     <>
       <div className={"rct-grid rct-grid-cols-1 rct-mb-2"}>
