@@ -1,10 +1,9 @@
-const postcss = require('rollup-plugin-postcss');
-const { terser } = require('rollup-plugin-terser');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const postcss = require("rollup-plugin-postcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 module.exports = {
-  env: 'production',
+  env: "production",
   minify: true,
   rollup(config, options) {
     config.plugins.push(
@@ -13,8 +12,7 @@ module.exports = {
         extract: "rct_style.css",
         minimize: true,
         sourceMap: true,
-      }),
-      terser()
+      })
     );
     return config;
   },
