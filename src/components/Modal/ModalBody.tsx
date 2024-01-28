@@ -27,12 +27,13 @@ export const ModalBody = ({ labels, cookies, colors }: ModalBodyProps) => {
     },
   ];
 
-  const [activeTab, setActiveTab] = React.useState<TailorTab>(modalTabs[1]);
-  const [activeTabKey, setActiveTabKey] = React.useState<string>(modalTabs[1].id);
+  const activeTab = modalTabs[1];
+  const activeTabKey = modalTabs[1].id;
 
   const setActiveTabById = (tab: TailorTab) => {
-    setActiveTab(tab);
-    setActiveTabKey(tab.id);
+    //setActiveTab(tab);
+    // setActiveTabKey(tab.id);
+    console.log("setActiveTabById", tab);
   };
 
   return (

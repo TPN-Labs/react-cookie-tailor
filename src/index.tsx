@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { ConditionalWrapper } from "./components/ConditionalWrapper";
-import { CookieTailor } from "./CookieTailor";
 import { VISIBILITY_OPTIONS } from "./types";
+import CookieTailor from "./CookieTailor";
 
 export * from "./types";
 export * from "./utilities";

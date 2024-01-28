@@ -1,19 +1,31 @@
-import React from "react";
-import { CookieCategoryDefinition, Label, TailorColors, TailorCookiesDetails } from "../types";
+import { useState } from "react";
+import {
+  CookieCategoryDefinition,
+  Label,
+  TailorColors,
+  TailorCookiesDetails,
+} from "../types";
 import { FooterBar, FooterMain, FooterTrailing } from "./Footer";
 import "../css/out/rct_style.css";
 import { Modal } from "./Modal";
+import React from "react";
 
-interface FooterTailorProps {
+type FooterTailorProps = {
   labels: Label;
   colors: TailorColors;
   cookies: TailorCookiesDetails;
   funcAccept: (categories: CookieCategoryDefinition[]) => void;
   funcDecline: () => void;
-}
+};
 
-const FooterTailor = ({ labels, colors, cookies, funcAccept, funcDecline }: FooterTailorProps) => {
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+function FooterTailor({
+  labels,
+  colors,
+  cookies,
+  funcAccept,
+  funcDecline,
+}: FooterTailorProps) {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <div>
@@ -50,6 +62,6 @@ const FooterTailor = ({ labels, colors, cookies, funcAccept, funcDecline }: Foot
       />
     </div>
   );
-};
+}
 
 export default FooterTailor;

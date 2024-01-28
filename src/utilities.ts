@@ -57,3 +57,9 @@ export const groupBy = (list: any[], groupKey: any) => {
   });
   return map;
 };
+
+export const createReducer = <S>(
+  reducer: { [key: string]: Function },
+  state: S,
+  action: { [key: string]: any }
+) => (reducer[action.type] ? reducer[action.type](state, action) : state);

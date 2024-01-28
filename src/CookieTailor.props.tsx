@@ -17,16 +17,8 @@ export interface CookieTailorProps {
   acceptOnScrollPercentage?: number;
   ariaAcceptLabel?: string;
   ariaDeclineLabel?: string;
-  buttonClasses?: string;
-  buttonId?: string;
-  buttonStyle?: React.CSSProperties;
-  buttonText?: string | ReactNode | Function;
-  buttonWrapperClasses?: string;
-  children?: ReactNode;
   colors?: TailorColors;
   cookies?: TailorCookiesDetails;
-  containerClasses?: string;
-  contentClasses?: string;
   contentStyle?: React.CSSProperties;
   cookieName?: string;
   cookieSecurity?: boolean;

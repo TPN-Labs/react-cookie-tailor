@@ -396,11 +396,6 @@ body.rct-modal-active {
   margin-bottom: 0px;
 }
 
-.rct-my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .rct-my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -422,20 +417,8 @@ body.rct-modal-active {
   margin-right: 0.5rem;
 }
 
-.rct-mr-4 {
-  margin-right: 1rem;
-}
-
 .rct-mt-3 {
   margin-top: 0.75rem;
-}
-
-.rct-mt-4 {
-  margin-top: 1rem;
-}
-
-.rct-mt-2 {
-  margin-top: 0.5rem;
 }
 
 .rct-inline-block {
@@ -498,10 +481,6 @@ body.rct-modal-active {
   flex-direction: row;
 }
 
-.rct-flex-col {
-  flex-direction: column;
-}
-
 .rct-flex-wrap {
   flex-wrap: wrap;
 }
@@ -546,10 +525,6 @@ body.rct-modal-active {
   border-width: 2px;
 }
 
-.rct-border-0 {
-  border-width: 0px;
-}
-
 .rct-border-solid {
   border-style: solid;
 }
@@ -557,11 +532,6 @@ body.rct-modal-active {
 .rct-bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
-.rct-bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .rct-fill-current {
@@ -572,20 +542,16 @@ body.rct-modal-active {
   padding: 0.25rem;
 }
 
-.rct-p-6 {
-  padding: 1.5rem;
+.rct-p-2 {
+  padding: 0.5rem;
 }
 
 .rct-p-4 {
   padding: 1rem;
 }
 
-.rct-p-3 {
-  padding: 0.75rem;
-}
-
-.rct-p-2 {
-  padding: 0.5rem;
+.rct-p-6 {
+  padding: 1.5rem;
 }
 
 .rct-px-0 {
@@ -593,9 +559,19 @@ body.rct-modal-active {
   padding-right: 0px;
 }
 
+.rct-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .rct-px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.rct-py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .rct-py-1 {
@@ -608,24 +584,9 @@ body.rct-modal-active {
   padding-bottom: 0.5rem;
 }
 
-.rct-py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .rct-py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.rct-px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.rct-px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .rct-text-left {
@@ -643,11 +604,6 @@ body.rct-modal-active {
 .rct-text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.rct-text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .rct-text-xl {
@@ -669,22 +625,6 @@ body.rct-modal-active {
 
 .rct-leading-7 {
   line-height: 1.75rem;
-}
-
-.rct-leading-5 {
-  line-height: 1.25rem;
-}
-
-.rct-leading-4 {
-  line-height: 1rem;
-}
-
-.rct-leading-8 {
-  line-height: 2rem;
-}
-
-.rct-leading-6 {
-  line-height: 1.5rem;
 }
 
 .rct-tracking-wide {

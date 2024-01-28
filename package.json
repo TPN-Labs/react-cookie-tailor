@@ -1,6 +1,6 @@
 {
   "name": "react-cookie-tailor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A small, customizable, and fully compliant cookie consent bar for React.",
   "keywords": [
     "react",
@@ -58,9 +58,10 @@
       "prettier --write"
     ]
   },
-  "prettier": "@mastermindzh/prettier-config",
   "dependencies": {
-    "js-cookie": "^2.2.1"
+    "js-cookie": "^2.2.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.9.3",
@@ -74,8 +75,8 @@
     "@storybook/addons": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@types/js-cookie": "^2.2.6",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "@types/uuid": "^9.0.8",
     "babel-loader": "^8.2.5",
     "gh-pages": "^4.0.0",
@@ -83,9 +84,8 @@
     "postcss": "^8.4.33",
     "postcss-import": "^16.0.0",
     "prettier": "^2.6.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rollup-plugin-postcss": "^4.0.2",
     "size-limit": "^11.0.0",
     "tailwindcss": "^3.4.1",
@@ -94,7 +94,8 @@
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "engines": {
     "node": ">=10"
